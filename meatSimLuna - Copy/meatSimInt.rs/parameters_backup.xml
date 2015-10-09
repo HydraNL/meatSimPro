@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+					<parameter name="SELFT_AVG_STRENGTH" displayName="SelfTransendence:  Avarage Strength" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="vegetarianVenueCount" displayName="Vegetarian Venue Count" type="int" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="mixedVenueCount" displayName="Mixed venue Count" type="int" 
+						defaultValue="5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="weightVegEatingAction" displayName="SelfTransdence: VegActionWeight" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="filterOnAffordances" displayName="Filter On Affordances" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="isIntentional" displayName="Choose Intentionally" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="selfTbeta" displayName="SelfTransdence: beta" type="double" 
+						defaultValue="0.1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="eater1Count" displayName="Eater1 Count" type="int" 
+						defaultValue="30" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="selfEk" displayName="SelfEnhanchement: k" type="double" 
+						defaultValue="0.25" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="OPENNESS_AVG_STRENGTH" displayName="Openness: Avarage Strength" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="isEvaluated" displayName="Use Evaluation" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+						defaultValue="__NULL__"
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="SELFE_AVG_STRENGTH" displayName="SelfEnhancement: Avarage Strength" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="selfEbeta" displayName="SelfEnhancement: beta" type="double" 
+						defaultValue="0.1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="filterOnHabits" displayName="Filter On Habits" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="OUTSIDE_CONTEXT" displayName="Habit Outside Context Weight" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="HABIT_THRESHOLD" displayName="Habit Threshold" type="double" 
+						defaultValue="0.7" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="selfTk" displayName="SelfTransdence: K" type="double" 
+						defaultValue="0.25" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="weightMeatEatingAction" displayName="SelfEnhancement: meatActionWeight" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="meatVenueCount" displayName="Meat Venue Count" type="int" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		</parameters>
+
+

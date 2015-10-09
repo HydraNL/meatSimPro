@@ -1,0 +1,47 @@
+<repast.simphony.data2.engine.DataSetDescriptor>
+  <name>Evaluation</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>framework.Agent</sourceType>
+  <inclTick>true</inclTick>
+  <inclBatchRun>false</inclBatchRun>
+  <inclRandomSeed>false</inclRandomSeed>
+  <scheduleParams>
+    <start>1.0</start>
+    <interval>1.0</interval>
+    <priority>-Infinity</priority>
+    <pType>LAST</pType>
+    <duration>-1.0</duration>
+    <frequency>REPEAT</frequency>
+    <hashCode>-146340271</hashCode>
+  </scheduleParams>
+  <atEnd>false</atEnd>
+  <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>dataEvIndividual</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>dataEvIndividual</id>
+        <className>framework.Agent</className>
+        <methodName>dataEvIndividual</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>dataEvSocial</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>dataEvSocial</id>
+        <className>framework.Agent</className>
+        <methodName>dataEvSocial</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>ID</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>ID</id>
+        <className>framework.Agent</className>
+        <methodName>getID</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+  </methodDataSources>
+  <countSources class="linked-hash-map"/>
+  <customNADataSources class="linked-hash-map"/>
+  <customAggDataSources class="linked-hash-map"/>
+</repast.simphony.data2.engine.DataSetDescriptor>

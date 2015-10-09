@@ -1,0 +1,39 @@
+<repast.simphony.data2.engine.DataSetDescriptor>
+  <name>Habit End</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>meatEating.Eater1</sourceType>
+  <inclTick>true</inclTick>
+  <inclBatchRun>true</inclBatchRun>
+  <inclRandomSeed>true</inclRandomSeed>
+  <scheduleParams>
+    <start>500.0</start>
+    <interval>0.0</interval>
+    <priority>-Infinity</priority>
+    <pType>LAST</pType>
+    <duration>-1.0</duration>
+    <frequency>ONE_TIME</frequency>
+    <hashCode>-1423914955</hashCode>
+  </scheduleParams>
+  <atEnd>false</atEnd>
+  <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>dataHabitStrengthMeat</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>dataHabitStrengthMeat</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataHabitStrengthMeat</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>ID</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>ID</id>
+        <className>meatEating.Eater1</className>
+        <methodName>getID</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+  </methodDataSources>
+  <countSources class="linked-hash-map"/>
+  <customNADataSources class="linked-hash-map"/>
+  <customAggDataSources class="linked-hash-map"/>
+</repast.simphony.data2.engine.DataSetDescriptor>

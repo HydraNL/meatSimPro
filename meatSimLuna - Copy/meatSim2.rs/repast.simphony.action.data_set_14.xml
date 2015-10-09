@@ -1,0 +1,39 @@
+<repast.simphony.data2.engine.DataSetDescriptor>
+  <name>VALHABITS</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>meatEating.Eater1</sourceType>
+  <inclTick>true</inclTick>
+  <inclBatchRun>true</inclBatchRun>
+  <inclRandomSeed>true</inclRandomSeed>
+  <scheduleParams>
+    <start>500.0</start>
+    <interval>0.0</interval>
+    <priority>-Infinity</priority>
+    <pType>LAST</pType>
+    <duration>-1.0</duration>
+    <frequency>ONE_TIME</frequency>
+    <hashCode>-1690555785</hashCode>
+  </scheduleParams>
+  <atEnd>false</atEnd>
+  <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>plateauTime</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>plateauTime</id>
+        <className>meatEating.Eater1</className>
+        <methodName>plateauTime</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>plateauValue</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>plateauValue</id>
+        <className>meatEating.Eater1</className>
+        <methodName>plateauValue</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+  </methodDataSources>
+  <countSources class="linked-hash-map"/>
+  <customNADataSources class="linked-hash-map"/>
+  <customAggDataSources class="linked-hash-map"/>
+</repast.simphony.data2.engine.DataSetDescriptor>

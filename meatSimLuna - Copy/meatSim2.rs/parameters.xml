@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+				
+				<parameter name="endTime" displayName="End Time" type="double" 
+						defaultValue="600.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+				<parameter name="GUI" displayName="GUI" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+		
+		
+				<parameter name="eater1Count" displayName="Eater1 Count" type="int" 
+						defaultValue="30" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="mixedVenueCount" displayName="Mixed venue Count" type="int" 
+						defaultValue="2" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="vegetarianVenueCount" displayName="Vegetarian Venue Count" type="int" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="meatVenueCount" displayName="Meat Venue Count" type="int" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		
+		
+				<parameter name="chooseContext" displayName="Choose Context" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>	<parameter name="ALL_DINE_IN" displayName="All Dine In" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="filterOnAffordances" displayName="Filter On Affordances" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="filterOnHabits" displayName="Filter On Habits" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="isUpdatedPHistory" displayName="Update Performance History" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="isIntentional" displayName="Choose Intentionally (false = choose Random)" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="isEvaluated" displayName="Use Evaluation" type="boolean" 
+						defaultValue="true" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+		/>	
+				<parameter name="isComplexEvaluated" displayName="Use Complex Evaluation" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+		/>		
+		
+		
+		
+			
+				<parameter name="HABIT_THRESHOLD_RELATIVE" displayName="Habit Threshold Relative" type="double" 
+						defaultValue="0.2" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="HABIT_THRESHOLD_ABSOLUTE" displayName="Habit Threshold Absolute" type="double" 
+						defaultValue="10" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>		<parameter name="OUTSIDE_CONTEXT" displayName="Habit Outside Context Weight" type="double" 
+						defaultValue="0.25" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>		<parameter name="HABIT_SD" displayName="Habit SD" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+		
+		
+					<parameter name="SELFT_AVG_STRENGTH" displayName="SelfTransendence:  Avarage Strength" type="double" 
+						defaultValue="0.8" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="selfTk" displayName="SelfTransdence: K" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="selfTbeta" displayName="SelfTransdence: beta" type="double" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="SELFE_AVG_STRENGTH" displayName="SelfEnhancement: Avarage Strength" type="double" 
+						defaultValue="1.2" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="selfEk" displayName="SelfEnhanchement: k" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="selfEbeta" displayName="SelfEnhancement: beta" type="double" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+		
+				<parameter name="OPENNESS_AVG_STRENGTH" displayName="Openness: Avarage Strength" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>			
+				<parameter name="CONSERVATION_AVG_STRENGTH" displayName="Conservation: Avarage Strength" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+		
+				<parameter name="LEARN_RATE" displayName="Learn Rate" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+				<parameter name="HABIT_LEARN_RATE" displayName="Habit_Learn_Rate" type="double" 
+						defaultValue="0.3" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="HABIT_LEARN_RATE_SD" displayName="Habit_Learn_Rate_SD" type="double" 
+						defaultValue="0.3" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+				<parameter name="OPEN_VEG_RESTAURANTS" displayName="INT: Open Veg restaurants" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="CHANGE_AFFORDANCES" displayName="INT: Change Affordance Mixed" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="MEET_UP_COUNT" displayName="INT: meetUp count" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="MEETUP_VEG" displayName="INT: meetUp VEG" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>	<parameter name="MEETUP_INVITE" displayName="INT: meetUp Invite" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+					
+									
+		/>	<parameter name="MEET_UP_ITERATOR" displayName="INT: MEET_UP_ITERATOR" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		<parameter name="INT_VEGDAY" displayName="Intervention: VEGDAYS 0,1 or 2" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="INTERVENTION_TIME" displayName="Intervention: time" type="double" 
+						defaultValue="350.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="VALUE_CHANGE_TIME" displayName="Intervention: Value Change Time" type="double" 
+						defaultValue="200.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="INCREASE_DINING_OUT" displayName="Intervention: Dining In Divider" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+					<parameter name="SELFT_INTERVENTION_STRENGTH" displayName="Intervention: SelfTransendence:  Avarage Strength" type="double" 
+						defaultValue="1.2" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+					<parameter name="SELFE_INTERVENTION_STRENGTH" displayName="Intervention: SelfEnhancement:  Avarage Strength" type="double" 
+						defaultValue="0.8" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="weightMeatEatingAction" displayName="SelfEnhancement: meatActionWeight" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="true" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="weightVegEatingAction" displayName="SelfTransdence: VegActionWeight" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="true" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="diningOutPercent" displayName="Percentage Dining Out" type="int" 
+						defaultValue="100" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+						defaultValue="__NULL__"
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		</parameters>

@@ -1,0 +1,15 @@
+<repast.simphony.data2.engine.FileSinkDescriptor>
+  <name>MR and HR</name>
+  <dataSet>MR and HR</dataSet>
+  <delimiter>,</delimiter>
+  <format>TABULAR</format>
+  <sourceIds class="linked-hash-set">
+    <string>run</string>
+    <string>MeatMean</string>
+    <string>HabitualMean</string>
+    <string>random_seed</string>
+    <string>tick</string>
+  </sourceIds>
+  <fileName>ValHabits_MR_and_HR.txt</fileName>
+  <addTimeStamp>true</addTimeStamp>
+</repast.simphony.data2.engine.FileSinkDescriptor>

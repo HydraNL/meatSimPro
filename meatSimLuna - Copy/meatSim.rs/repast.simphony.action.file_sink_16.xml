@@ -1,0 +1,16 @@
+<repast.simphony.data2.engine.FileSinkDescriptor>
+  <name>Validation Habitual</name>
+  <dataSet>Validation Habits</dataSet>
+  <delimiter>,</delimiter>
+  <format>TABULAR</format>
+  <sourceIds class="linked-hash-set">
+    <string>run</string>
+    <string>random_seed</string>
+    <string>tick</string>
+    <string>ID</string>
+    <string>individualMeatRatio</string>
+    <string>plateau</string>
+  </sourceIds>
+  <fileName>VALHABITS.txt</fileName>
+  <addTimeStamp>true</addTimeStamp>
+</repast.simphony.data2.engine.FileSinkDescriptor>

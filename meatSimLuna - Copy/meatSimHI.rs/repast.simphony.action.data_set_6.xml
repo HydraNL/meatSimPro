@@ -1,0 +1,58 @@
+<repast.simphony.data2.engine.DataSetDescriptor>
+  <name>Habits Aggregate</name>
+  <type>AGGREGATE</type>
+  <inclTick>true</inclTick>
+  <inclBatchRun>false</inclBatchRun>
+  <inclRandomSeed>false</inclRandomSeed>
+  <scheduleParams>
+    <start>1.0</start>
+    <interval>1.0</interval>
+    <priority>-Infinity</priority>
+    <pType>LAST</pType>
+    <duration>-1.0</duration>
+    <frequency>REPEAT</frequency>
+    <hashCode>715651210</hashCode>
+  </scheduleParams>
+  <atEnd>false</atEnd>
+  <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>Meat Frequency</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Meat Frequency</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataFrequencyIndexMeat</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Veg Frequency</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Veg Frequency</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataFrequencyIndexVeg</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Meat Habit</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Meat Habit</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataHabitStrengthMeat</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Veg Habit</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Veg Habit</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataHabitStrengthVeg</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+  </methodDataSources>
+  <countSources class="linked-hash-map"/>
+  <customNADataSources class="linked-hash-map"/>
+  <customAggDataSources class="linked-hash-map"/>
+</repast.simphony.data2.engine.DataSetDescriptor>

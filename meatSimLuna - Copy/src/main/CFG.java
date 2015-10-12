@@ -340,5 +340,9 @@ public class CFG {
 //	private static List<Integer> meetUpDays;
 //	}
 
+	public static double getEvaluationCorrelation() {
+		return -0.5;
+	}
+
 	
 }

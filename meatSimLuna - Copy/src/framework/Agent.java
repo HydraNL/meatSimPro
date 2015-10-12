@@ -139,7 +139,7 @@ public abstract class Agent {
 		return generalEvaluation;
 	}
 
-
+	//See Update General Ev (EV of agent for Eating-practice)
 	public void setGeneralEvaluation(double generalEvaluation) {
 		this.generalEvaluation = generalEvaluation;
 	}
@@ -362,18 +362,23 @@ public abstract class Agent {
 		return newCandidates;
 	}
 	private List<Location> filterOnHabitsL(List<Location> aFiltered) {
+
 		List<Location> newCandidates=new ArrayList<Location>();
 		habitStrengthsL.clear();
-		
+		RandomHelper.createNormal(1, 0.5);
+		double randomAttention = Math.min(2, Math.max(0, RandomHelper.getNormal().nextDouble()));
+		RandomHelper.createNormal(1, 0.25);
 		
 		for(Location l: candidateLocations){
 			double HI = mySocialPractices.get(0).calculateFrequencyL(l);
+			double ro = CFG.getEvaluationCorrelation();
+			double Attention = ro * getGeneralEvaluation()+
+						Math.sqrt(1-(ro*ro)) * randomAttention;
+			double habitThreshold = CFG.HTR(getHabitWeight());
+			
+			if(HI > Attention * habitThreshold) newCandidates.add(l);
+			
 			habitStrengthsL.put(l, HI);
-		}
-		Entry<ArrayList<Location>, Double> pair = relativeHabitFilter(habitStrengthsL);
-		if(pair.getValue()*getGeneralEvaluation() >
-		RandomHelper.nextDoubleFromTo(0, 2)*CFG.HTR(getHabitWeight())){
-			newCandidates = pair.getKey();
 		}
 		return newCandidates;
 	}
@@ -381,16 +386,19 @@ public abstract class Agent {
 	private List<Agent> filterOnHabitsA(List<Agent> aFiltered) {
 		List<Agent> newCandidates=new ArrayList<Agent>();
 		habitStrengthsA.clear();
-		
+		RandomHelper.createNormal(1, 0.5);
+		double randomAttention = Math.min(2, Math.max(0, RandomHelper.getNormal().nextDouble()));
+		RandomHelper.createNormal(1, 0.25);
 		
 		for(Agent a: agents){
 			double HI = mySocialPractices.get(0).calculateFrequencyA(a);
+			double ro = CFG.getEvaluationCorrelation();
+			double Attention = ro * getGeneralEvaluation()+
+						Math.sqrt(1-(ro*ro)) * randomAttention;
+			double habitThreshold = CFG.HTR(getHabitWeight());
+			
+			if(HI > Attention * habitThreshold) newCandidates.add(a);
 			habitStrengthsA.put(a, HI);
-		}
-		Entry<ArrayList<Agent>, Double> pair = relativeHabitFilter(habitStrengthsA);
-		if(pair.getValue()*getGeneralEvaluation() >
-		RandomHelper.nextDoubleFromTo(0, 2)*CFG.HTR(getHabitWeight())){
-			newCandidates = pair.getKey();
 		}
 		return newCandidates;
 	}
@@ -398,26 +406,7 @@ public abstract class Agent {
 	 * 1. Calculate frequency per Social Practice
 	 * 2. Calculate totalFrequency
 	 * 3. Calculate Habit Strength per Social Practice
-	 * 
-	 */
-	private ArrayList<SocialPractice> filterOnTriggers(
-			ArrayList<SocialPractice> candidateSocialPractices) {
-		ArrayList<SocialPractice> newCandidates=new ArrayList<SocialPractice>();
-		habitStrengths.clear();
-		habitStrengthsWeighted.clear();
-		
-	
-			for(SocialPractice sp:mySocialPractices){
-				habitStrengths.put(sp, sp.calculateFrequency(myContext,getOCweight()));
-				
-				//data
-				habitStrengthsWeighted.put(sp, habitStrengths.get(sp) - CFG.HTR(getHabitWeight()));
-				
-			}
-		habitStrengthsMeat.put(CFG.getTime(),dataHabitStrength(MeatEatingPractice.class));//For Data purposes
-		Entry<ArrayList<SocialPractice>, Double> pair = relativeHabitFilter(habitStrengths);
-		
-		//Thus your HI * evaluation > HTR * HW * Attention
+	 * //Thus your HI * evaluation > HTR * HW * Attention
 		//i.e. if you have done the action more often
 		//or you evaluate it higher
 		//you have more chance to go in a habit
@@ -426,23 +415,53 @@ public abstract class Agent {
 		//if you have a higher disposition to go into a habit
 		//if you have more attention for it
 		//you have less chance of going into the habit
+	 */
+	private ArrayList<SocialPractice> filterOnTriggers(
+			ArrayList<SocialPractice> candidateSocialPractices) {
+		ArrayList<SocialPractice> newCandidates=new ArrayList<SocialPractice>();
+		habitStrengths.clear();
+		habitStrengthsWeighted.clear();
 		
-		double attention = RandomHelper.nextDoubleFromTo(0, 2);
+		RandomHelper.createNormal(1, 0.5);
+		double randomAttention = Math.min(2, Math.max(0, RandomHelper.getNormal().nextDouble()));
+		RandomHelper.createNormal(1, 0.25);
+		
+		for(SocialPractice sp:mySocialPractices){
+				double HI =sp.calculateFrequency(myContext,getOCweight());
+				double ro = CFG.getEvaluationCorrelation();
+				//Ro moet nog negatief!
+				double Attention = ro * sp.calculateEvaluation(myContext, CFG.OUTSIDE_CONTEXT(getOCweight()))+
+							Math.sqrt(1-(ro*ro)) * randomAttention;
+				double habitThreshold = CFG.HTR(getHabitWeight());
+				
+				if(HI > Attention * habitThreshold) newCandidates.add(sp);
+				
+				//System.out.println(sp.getClass() + "HI"+ HI + "Thr:" + Attention*habitThreshold);
+				//data
+				habitStrengths.put(sp, HI);
+				habitStrengthsWeighted.put(sp, habitStrengths.get(sp) - CFG.HTR(getHabitWeight()));//data
+			}
+		//Data
+		habitStrengthsMeat.put(CFG.getTime(),dataHabitStrength(MeatEatingPractice.class));//For Data purposes
+		return newCandidates;
+		
+		
+		
+		
 		//System.out.println("HI"+ pair.getValue() + "EV:" + getEvaluationInContext());
 		//System.out.println("HTR"+ CFG.HTR(1) + "HW"+ getHabitWeight() + "Attention" + attention);
 		
-		//Data purposes
-		habitStrengthsWeighted.put(pair.getKey().get(0), pair.getValue()- CFG.HTR(getHabitWeight()));
 		
-		if(pair.getValue() * 
-				pair.getKey().get(0).calculateEvaluation(myContext, CFG.OUTSIDE_CONTEXT(getOCweight())) //NB:Kan alleen nu omdat er twee practices zijn.
-				> CFG.HTR(getHabitWeight())*attention){
-			
-			//System.out.println("I agentnr. " + getID() + " am doing a" + pair.getKey().get(0) + "habit at tick: " + CFG.getTime());
-			
-			newCandidates = pair.getKey();
-		}
-		return newCandidates;
+		//Entry<ArrayList<SocialPractice>, Double> pair = relativeHabitFilter(habitStrengths);
+//		if(pair.getValue() * 
+//				pair.getKey().get(0).calculateEvaluation(myContext, CFG.OUTSIDE_CONTEXT(getOCweight())) //NB:Kan alleen nu omdat er twee practices zijn.
+//				> CFG.HTR(getHabitWeight())*attention){
+//			
+//			//System.out.println("I agentnr. " + getID() + " am doing a" + pair.getKey().get(0) + "habit at tick: " + CFG.getTime());
+//			
+//			newCandidates = pair.getKey();
+//		}
+//		return newCandidates;
 	}
 	
 	private List<Location> filterOnIntentionsL(List<Location> hFiltered) {
@@ -785,7 +804,7 @@ public abstract class Agent {
 	}
 	
 
-
+	//GeneralEvaluation is an agents general evaluation of the Eatin-practice, it is iniated on 1?
 	private void updateGeneralEvaluation(Evaluation ev, double learnRatio) {
 		generalEvaluation = (1-learnRatio)*generalEvaluation + learnRatio *ev.getGrade();
 	}

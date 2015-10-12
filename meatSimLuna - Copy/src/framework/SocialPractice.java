@@ -6,10 +6,14 @@ package framework;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 import main.CFG;
 import main.Helper;
+
+
 
 
 
@@ -161,19 +165,32 @@ public abstract class SocialPractice {
 	}
 
 	private double getFreqOutsideContext(PContext myContext){
-		HashMap<Object, Double> temp =new HashMap<Object, Double>(performanceHistoryMap);
+		Map<Object, Double> temp =new HashMap<Object, Double>(performanceHistoryMap);
 		temp.remove(myContext.getMyLocation());
 		for(Object o: myContext.getMyAgents()){
 			temp.remove(o);
 		}
 		if(temp.values().isEmpty()) return 0.5;
 		
-		double evLocation = evaluationHistoryMap.getOrDefault(myContext.getMyLocation(), 0.5);
-		double sumAgents = 0;
-		for(Agent a: myContext.getMyAgents()){
-			sumAgents+=evaluationHistoryMap.getOrDefault(a, 0.5);
-		}
-		return 0.5 * evLocation + 0.5 *(sumAgents/myContext.getMyAgents().size());
+		//Filter alle locaties eruit
+		Map<Object, Double> locationOC = 
+				temp.entrySet()
+				.stream()
+				.filter(p -> p.getKey() instanceof Location)
+				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
+		
+		
+		Map<Object, Double> agentOC = 
+				temp.entrySet()
+				.stream()
+				.filter(p -> p.getKey() instanceof Agent)
+				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
+		
+				
+		double hiLocation = locationOC.isEmpty()? 0.5:Helper.sumDouble(locationOC.values())/locationOC.size();
+		double hiAgents = agentOC.isEmpty() ? 0.5:Helper.sumDouble(agentOC.values())/agentOC.size();
+		
+		return 0.5 * hiLocation + 0.5 * hiAgents;
 	}
 	
 	public double calculateEvaluation(PContext myContext, double OCweight){
@@ -204,12 +221,25 @@ public abstract class SocialPractice {
 		}
 		if(temp.values().isEmpty()) return 1;
 		
-		double evLocation = evaluationHistoryMap.getOrDefault(myContext.getMyLocation(), 1.0);
-		double sumAgents = 0;
-		for(Agent a: myContext.getMyAgents()){
-			sumAgents+=evaluationHistoryMap.getOrDefault(a, 1.0);
-		}
-		return 0.5 * evLocation + 0.5 *(sumAgents/myContext.getMyAgents().size());
+		//Filter alle locaties eruit
+		Map<Object, Double> locationOC = 
+				temp.entrySet()
+				.stream()
+				.filter(p -> p.getKey() instanceof Location)
+				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
+		
+		
+		Map<Object, Double> agentOC = 
+				temp.entrySet()
+				.stream()
+				.filter(p -> p.getKey() instanceof Agent)
+				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
+		
+				
+		double evLocation = locationOC.isEmpty()? 1.0:Helper.sumDouble(locationOC.values())/locationOC.size();
+		double evAgents = agentOC.isEmpty() ? 1.0:Helper.sumDouble(agentOC.values())/agentOC.size();
+		
+		return 0.5 * evLocation + 0.5 * evAgents;
 	}
 	
 

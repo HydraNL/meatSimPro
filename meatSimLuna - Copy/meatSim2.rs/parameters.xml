@@ -48,7 +48,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
 		/>	<parameter name="ALL_DINE_IN" displayName="All Dine In" type="boolean" 
-						defaultValue="true" 
+						defaultValue="false" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
@@ -83,7 +83,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 		/>	
 				<parameter name="isComplexEvaluated" displayName="Use Complex Evaluation" type="boolean" 
-						defaultValue="false" 
+						defaultValue="true" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 		/>		

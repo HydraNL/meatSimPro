@@ -21,6 +21,8 @@ import main.Helper;
 
 
 
+import meatEating.MeatEatingPractice;
+
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 // Start of user code (user defined imports)
@@ -44,6 +46,7 @@ public abstract class SocialPractice {
 	private HashMap<Object, Double>  performanceHistoryMap = new HashMap<Object, Double>();
 	//private DoubleMatrix performanceHistoryMatrix;
 	private HashMap<Object, Double> evaluationHistoryMap = new HashMap<Object, Double>();
+	private HashMap<Object, Double>  performanceHistoryMapSP = new HashMap<Object, Double>();
 	
 	//private ArrayList<Evaluation> evaluations = new ArrayList<Evaluation>(); //Iig nu niet nodig en erg veel ruimte
 	private Evaluation lastEvaluation;
@@ -72,6 +75,9 @@ public abstract class SocialPractice {
 	public void updatePerformanceHistory(PContext currentContext, boolean isEnacted, double learnWeight) {
 		//performanceHistory.add(currentContext); <- requires space
 		updatePerformanceHistoryMap(currentContext, isEnacted, learnWeight);
+		
+		//We stoppen de supermap in de meateatingpractice
+		if(this instanceof MeatEatingPractice) updatePerformanceHistoryMapSP(currentContext,learnWeight);
 	}
 	
 	public void updateEvaluationHistoryMap(PContext currentContext, double grade, double learnWeight) {
@@ -101,6 +107,25 @@ public abstract class SocialPractice {
 		for(Agent a: agents){
 			Helper.mapLearn(true, performanceHistoryMap, a, newValue, learnWeight);
 		}	
+	}
+	
+	private void updatePerformanceHistoryMapSP(PContext currentContext, double learnWeight) {
+		Helper.mapLearn(true, performanceHistoryMapSP, currentContext.getMyLocation(), 1.0, learnWeight);
+
+		ArrayList<Agent> agents = currentContext.getMyAgents(); //Something wrong with adding?
+		for(Agent a: agents){
+			Helper.mapLearn(true, performanceHistoryMapSP, a, 1.0, learnWeight);
+		}
+		
+		//And learn 0 voor die er niet inzitten
+		Map<Object, Double> temp =new HashMap<Object, Double>(performanceHistoryMapSP);
+		temp.remove(currentContext.getMyLocation());
+		for(Object o: currentContext.getMyAgents()){
+			temp.remove(o);
+		}
+		for(Object o: temp.keySet()){
+			Helper.mapLearn(true, performanceHistoryMapSP, o, 0.0, learnWeight);
+		}
 	}
 	
 	//Dont know if this is still neccesary.
@@ -150,10 +175,10 @@ public abstract class SocialPractice {
 	
 	//For filtering locations on habits.
 	public double calculateFrequencyL(Location l){
-		return performanceHistoryMap.getOrDefault(l, 0.5);
+		return performanceHistoryMapSP.getOrDefault(l, 0.5);
 	}
 	public double calculateFrequencyA(Agent a){
-		return performanceHistoryMap.getOrDefault(a, 0.5);
+		return performanceHistoryMapSP.getOrDefault(a, 0.5);
 	}
 	
 	private double getFreqInsideContext(PContext myContext) {

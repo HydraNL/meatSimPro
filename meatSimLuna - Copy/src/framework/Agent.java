@@ -367,10 +367,7 @@ public abstract class Agent {
 		
 		
 		for(Location l: candidateLocations){
-			double HI = 0;
-			for(SocialPractice sp:mySocialPractices){
-				HI+= sp.calculateFrequencyL(l);
-			}
+			double HI = mySocialPractices.get(0).calculateFrequencyL(l);
 			habitStrengthsL.put(l, HI);
 		}
 		Entry<ArrayList<Location>, Double> pair = relativeHabitFilter(habitStrengthsL);
@@ -387,10 +384,7 @@ public abstract class Agent {
 		
 		
 		for(Agent a: agents){
-			double HI = 0;
-			for(SocialPractice sp:mySocialPractices){
-				HI+= sp.calculateFrequencyA(a);
-			}
+			double HI = mySocialPractices.get(0).calculateFrequencyA(a);
 			habitStrengthsA.put(a, HI);
 		}
 		Entry<ArrayList<Agent>, Double> pair = relativeHabitFilter(habitStrengthsA);

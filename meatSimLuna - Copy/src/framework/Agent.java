@@ -506,8 +506,8 @@ public abstract class Agent {
 			temp = (CFG.isIntentional()) ? //Get a random practice if intentions aren't used.
 					chooseOnIntentions(mySocialPractices):
 					(RandomHelper.nextIntFromTo(0, 1) ==1) ?
-							new MeatEatingPractice():
-							new VegEatingPractice();
+							new MeatEatingPractice(this):
+							new VegEatingPractice(this);
 			for(PContext affordance: temp.getAffordances()){
 				if(chosenLocation.getClass() == affordance.getMyLocation().getClass()) accept = true;
 			}
@@ -528,7 +528,7 @@ public abstract class Agent {
 	public void chooseFood() {
 		if(isEating) myAction = chooseAction();
 		else{
-			myAction = new NoAction(); //Maybe change to just new Social Practice which will not be an instance of either;
+			myAction = new NoAction(this); //Maybe change to just new Social Practice which will not be an instance of either;
 			actionType = ActionType.NOACTION;
 		}
 		if(myAction == null) System.out.println("No action is chosen");

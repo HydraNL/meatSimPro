@@ -3,6 +3,7 @@
  *******************************************************************************/
 package meatEating;
 
+import framework.Agent;
 import framework.PContext;
 import framework.PhysicalContext;
 import framework.SocialPractice;
@@ -22,8 +23,8 @@ public class MeatEatingPractice extends SocialPractice {
 	/**
 	 * The constructor.
 	 */
-	public MeatEatingPractice() {
-		super();
+	public MeatEatingPractice(Agent myAgent) {
+		super(myAgent);
 		addAffordance(new PContext(new MeatVenue()));
 		addAffordance(new PContext(new MixedVenue()));
 		addAffordance(new PContext(new Home()));

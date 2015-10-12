@@ -37,6 +37,7 @@ import org.jblas.DoubleMatrix;
  * @author rijk
  */
 public abstract class SocialPractice {
+	private Agent myAgent;
 	private Class<? extends Value> purpose;
 	private ArrayList<PContext> affordances=new ArrayList<PContext>();
 	//private ArrayList<PContext> performanceHistory = new ArrayList<PContext>();
@@ -52,8 +53,8 @@ public abstract class SocialPractice {
 	/**
 	 * The constructor.
 	 */
-	public SocialPractice() {
-		super();
+	public SocialPractice(Agent a) {
+		myAgent = a;
 	}
 	
 	/**

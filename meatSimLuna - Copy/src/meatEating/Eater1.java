@@ -38,8 +38,8 @@ public class Eater1 extends Agent {
 	 */
 	public Eater1(ArrayList<Agent> agents, ArrayList<Location> candidateLocations, ArrayList<Location> homes, Grid<Object> grid, Location meetUpPlace) {
 		super(agents, candidateLocations, homes, grid, meetUpPlace);
-		addSocialPractice(new MeatEatingPractice());
-		addSocialPractice(new VegEatingPractice());
+		addSocialPractice(new MeatEatingPractice(this));
+		addSocialPractice(new VegEatingPractice(this));
 		double[] sampleValues = correlated();
 		addValue(new SelfEnhancement(sampleValues[0], this)); //ND, 1, 0.25 (maybe higher sigma?)
 		addValue(new SelfTranscendence(sampleValues[1], this));

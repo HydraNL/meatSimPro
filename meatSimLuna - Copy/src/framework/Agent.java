@@ -372,8 +372,9 @@ public abstract class Agent {
 		for(Location l: candidateLocations){
 			double HI = mySocialPractices.get(0).calculateFrequencyL(l);
 			double ro = CFG.getEvaluationCorrelation();
-			double Attention = ro * getGeneralEvaluation()+
-						Math.sqrt(1-(ro*ro)) * randomAttention;
+			double Attention = 2-(
+					ro * getGeneralEvaluation()+
+						Math.sqrt(1-(ro*ro)) * randomAttention);
 			double habitThreshold = CFG.HTR(getHabitWeight());
 			
 			if(HI > Attention * habitThreshold) newCandidates.add(l);
@@ -393,8 +394,8 @@ public abstract class Agent {
 		for(Agent a: agents){
 			double HI = mySocialPractices.get(0).calculateFrequencyA(a);
 			double ro = CFG.getEvaluationCorrelation();
-			double Attention = ro * getGeneralEvaluation()+
-						Math.sqrt(1-(ro*ro)) * randomAttention;
+			double Attention = 2- (ro * getGeneralEvaluation()+
+						Math.sqrt(1-(ro*ro)) * randomAttention);
 			double habitThreshold = CFG.HTR(getHabitWeight());
 			
 			if(HI > Attention * habitThreshold) newCandidates.add(a);
@@ -430,8 +431,9 @@ public abstract class Agent {
 				double HI =sp.calculateFrequency(myContext,getOCweight());
 				double ro = CFG.getEvaluationCorrelation();
 				//Ro moet nog negatief!
-				double Attention = ro * sp.calculateEvaluation(myContext, CFG.OUTSIDE_CONTEXT(getOCweight()))+
-							Math.sqrt(1-(ro*ro)) * randomAttention;
+				double Attention = 2-
+						(ro * sp.calculateEvaluation(myContext, CFG.OUTSIDE_CONTEXT(getOCweight()))+
+							Math.sqrt(1-(ro*ro)) * randomAttention);
 				double habitThreshold = CFG.HTR(getHabitWeight());
 				
 				if(HI > Attention * habitThreshold) newCandidates.add(sp);

@@ -52,8 +52,12 @@ public abstract class Value {
 		else return strengthWeight * getStrengthAvarage();
 	}
 	
+	public double getStrengthMod(PContext myContext) {
+		return CFG.intentionModifier(this) *getStrength(myContext);
+	}
+	
 	public double getThreshold(PContext myContext){
-		return getStrength(myContext) + (range/2.0);		//This is thus slightly different per agent and not all the same as startsat.	
+		return  getStrengthMod(myContext) + (range/2.0);		//This is thus slightly different per agent and not all the same as startsat.	
 	}
 
 	/**
@@ -85,7 +89,7 @@ public abstract class Value {
 		 	}
 		 	
 			private double getK(PContext myContext) {
-				return getStrength(myContext) * k;
+				return getStrengthMod(myContext) * k;
 			}
 		
 	//Might give problems later as each value needs its own parameters when updating.

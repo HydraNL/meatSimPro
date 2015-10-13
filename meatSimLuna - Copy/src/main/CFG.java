@@ -5,6 +5,9 @@ package main;
 
 import java.util.ArrayList;
 
+import meatEating.SelfEnhancement;
+import meatEating.SelfTranscendence;
+import framework.Value;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.random.RandomHelper;
 
@@ -342,6 +345,13 @@ public class CFG {
 
 	public static double getEvaluationCorrelation() {
 		return -0.5;
+	}
+
+	public static double intentionModifier(Value value) {
+		
+		if(value instanceof SelfEnhancement) return RunEnvironment.getInstance().getParameters().getDouble("MEAT_INTENTION_MOD");
+		else return RunEnvironment.getInstance().getParameters().getDouble("VEG_INTENTION_MOD");
+	
 	}
 
 	

@@ -438,7 +438,7 @@ public abstract class Agent {
 				
 				if(HI > Attention * habitThreshold) newCandidates.add(sp);
 				
-				//System.out.println(sp.getClass() + "HI"+ HI + "Thr:" + Attention*habitThreshold);
+				System.out.println(sp.getClass() + "HI"+ HI + "Thr:" + Attention*habitThreshold);
 				//data
 				habitStrengths.put(sp, HI);
 				habitStrengthsWeighted.put(sp, habitStrengths.get(sp) - CFG.HTR(getHabitWeight()));//data

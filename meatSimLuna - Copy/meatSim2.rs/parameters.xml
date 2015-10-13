@@ -48,7 +48,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
 		/>	<parameter name="ALL_DINE_IN" displayName="All Dine In" type="boolean" 
-						defaultValue="false" 
+						defaultValue="true" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
@@ -92,17 +92,12 @@
 		
 			
 				<parameter name="HABIT_THRESHOLD_RELATIVE" displayName="Habit Threshold Relative" type="double" 
-						defaultValue="0.2" 
+						defaultValue="0.6" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="HABIT_THRESHOLD_ABSOLUTE" displayName="Habit Threshold Absolute" type="double" 
-						defaultValue="10" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>		<parameter name="OUTSIDE_CONTEXT" displayName="Habit Outside Context Weight" type="double" 
+				<parameter name="OUTSIDE_CONTEXT" displayName="Habit Outside Context Weight" type="double" 
 						defaultValue="0.25" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
@@ -148,6 +143,16 @@
 		/>
 				<parameter name="selfEbeta" displayName="SelfEnhancement: beta" type="double" 
 						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="MEAT_INTENTION_MOD" displayName="MEAT_INTENTION_MOD" type="double" 
+						defaultValue="100.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="VEG_INTENTION_MOD" displayName="VEG_INTENTION_MOD" type="double" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

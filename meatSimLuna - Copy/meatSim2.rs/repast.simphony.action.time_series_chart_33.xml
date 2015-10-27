@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>EvInContextMeat</name>
-  <dataSet>Evaluation Individuals</dataSet>
+  <name>HabitIndex Meat</name>
+  <dataSet>Habits</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>EV</yAxisLabel>
-  <chartTitle>EV In Context Meat</chartTitle>
+  <yAxisLabel>HI</yAxisLabel>
+  <chartTitle>HI Meat</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -28,7 +28,7 @@
     </entry>
   </seriesIds>
   <dataValueIds>
-    <string>EvaluationInContextMeat</string>
+    <string>dataHabitStrengthMeat</string>
   </dataValueIds>
   <plotRangeLength>-1</plotRangeLength>
 </repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

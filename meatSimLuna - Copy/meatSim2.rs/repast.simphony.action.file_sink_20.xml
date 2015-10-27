@@ -1,19 +1,15 @@
 <repast.simphony.data2.engine.FileSinkDescriptor>
-  <name>MNI and VNI (Indivudal Meat/Veg Need)</name>
-  <dataSet>Needs, Threshold, Satisfaction (I)</dataSet>
+  <name>plateauTime</name>
+  <dataSet>VALHABITS</dataSet>
   <delimiter>,</delimiter>
   <format>TABULAR</format>
   <sourceIds class="linked-hash-set">
-    <string>tick</string>
-    <string>ID</string>
-    <string>dataNeedSelfEnhancement</string>
-    <string>dataNeedSelfTranscendence</string>
+    <string>run</string>
     <string>random_seed</string>
-    <string>dataThresholdSelfEnhancement</string>
-    <string>dataThresholdSelfTranscendence</string>
-    <string>dataSatisfactionSelfEnhancement</string>
-    <string>dataSatisfactionSelfTranscendence</string>
+    <string>plateauTime</string>
+    <string>plateauValue</string>
+    <string>tick</string>
   </sourceIds>
-  <fileName>MNI_and_VNI.txt</fileName>
+  <fileName>plateauTime.txt</fileName>
   <addTimeStamp>true</addTimeStamp>
 </repast.simphony.data2.engine.FileSinkDescriptor>

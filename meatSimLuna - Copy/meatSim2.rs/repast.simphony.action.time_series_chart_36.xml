@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>HS Weighted</name>
-  <dataSet>HabitStrength Weighted</dataSet>
+  <name>EV Soc Non-aggr</name>
+  <dataSet>Evaluation Individuals</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>HabitStrength Weighted</yAxisLabel>
-  <chartTitle>HS Weighted</chartTitle>
+  <yAxisLabel>EV SOCIAL non-aggr</yAxisLabel>
+  <chartTitle>EV SOCIAL non-aggr</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -28,8 +28,7 @@
     </entry>
   </seriesIds>
   <dataValueIds>
-    <string>dataHabitStrengthWeightedMeat</string>
-    <string>dataHabitStrengthWeightedVeg</string>
+    <string>dataEvSocial</string>
   </dataValueIds>
   <plotRangeLength>-1</plotRangeLength>
 </repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

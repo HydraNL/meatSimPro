@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Habits</name>
-  <dataSet>Habits</dataSet>
+  <name>Needs</name>
+  <dataSet>Needs</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>HabitStrength</yAxisLabel>
-  <chartTitle>Habits</chartTitle>
+  <yAxisLabel>Need Index</yAxisLabel>
+  <chartTitle>Needs</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -28,8 +28,8 @@
     </entry>
   </seriesIds>
   <dataValueIds>
-    <string>dataHabitStrengthMeat</string>
-    <string>dataHabitStrengthVeg</string>
+    <string>dataNeedSelfEnhancement</string>
+    <string>dataNeedSelfTranscendence</string>
   </dataValueIds>
   <plotRangeLength>-1</plotRangeLength>
 </repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

@@ -299,7 +299,7 @@ public class CFG {
 	}
 
 	public static double HABIT_LEARN_RATE(double learnWeight) {
-		return RunEnvironment.getInstance().getParameters().getDouble("HABIT_LEARN_RATE");
+		return RunEnvironment.getInstance().getParameters().getDouble("HABIT_LEARN_RATE") * learnWeight;
 	}
 
 	public static double habitlearnSD() {
@@ -344,14 +344,24 @@ public class CFG {
 //	}
 
 	public static double getEvaluationCorrelation() {
-		return -0.5;
+		return 0.5;
 	}
 
 	public static double intentionModifier(Value value) {
 		
-		if(value instanceof SelfEnhancement) return RunEnvironment.getInstance().getParameters().getDouble("MEAT_INTENTION_MOD");
-		else return RunEnvironment.getInstance().getParameters().getDouble("VEG_INTENTION_MOD");
-	
+		if(value instanceof SelfEnhancement) {
+			if(getTime() <INTERVENTION_TIME()) {
+			return RunEnvironment.getInstance().getParameters().getDouble("MEAT_INTENTION_MOD");
+			}
+			else return RunEnvironment.getInstance().getParameters().getDouble("MEAT_INTENTION_MOD_AFTERINT");
+		
+		}
+		else{
+			if(getTime() <INTERVENTION_TIME()) {
+				return RunEnvironment.getInstance().getParameters().getDouble("VEG_INTENTION_MOD");
+				}
+				else return RunEnvironment.getInstance().getParameters().getDouble("VEG_INTENTION_MOD_AFTERINT");
+		}
 	}
 
 	

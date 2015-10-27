@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Meat/Veg and Aff/Habitual/Int</name>
+  <name>Afforded - Habitual - Intentional</name>
   <dataSet>Aggregate Eater Data (M,V,A,H,I)</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
   <yAxisLabel>Action Frequency</yAxisLabel>
-  <chartTitle>Meat/Veg Afforded/Habitual/Intentional</chartTitle>
+  <chartTitle>Afforded -Habitual - Inentional</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,72 +21,36 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>Veg Intentional</string>
+      <string>Afforded </string>
       <SeriesData>
-        <label>Veg Intentional</label>
-        <color>
-          <red>204</red>
-          <green>255</green>
-          <blue>204</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Meat Afforded </string>
-      <SeriesData>
-        <label>Meat Afforded </label>
-        <color>
-          <red>153</red>
-          <green>0</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Meat Intentional</string>
-      <SeriesData>
-        <label>Meat Intentional</label>
-        <color>
-          <red>255</red>
-          <green>204</green>
-          <blue>204</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Meat Habitual</string>
-      <SeriesData>
-        <label>Meat Habitual</label>
-        <color>
-          <red>255</red>
-          <green>0</green>
-          <blue>51</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Veg Habitual</string>
-      <SeriesData>
-        <label>Veg Habitual</label>
-        <color>
-          <red>51</red>
-          <green>255</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Veg Afforded</string>
-      <SeriesData>
-        <label>Veg Afforded</label>
+        <label>Afforded </label>
         <color>
           <red>0</red>
-          <green>51</green>
+          <green>0</green>
+          <blue>255</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Intentional </string>
+      <SeriesData>
+        <label>Intentional </label>
+        <color>
+          <red>0</red>
+          <green>255</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Habitual </string>
+      <SeriesData>
+        <label>Habitual </label>
+        <color>
+          <red>255</red>
+          <green>0</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>

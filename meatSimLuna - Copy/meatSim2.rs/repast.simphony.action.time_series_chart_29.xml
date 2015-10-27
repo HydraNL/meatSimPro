@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>EV for real</name>
-  <dataSet>EvaluationSumsForReal</dataSet>
+  <name>MNM and VNM</name>
+  <dataSet>Needs Aggregates</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>ev</yAxisLabel>
-  <chartTitle>EV for real</chartTitle>
+  <yAxisLabel>NeedIndex</yAxisLabel>
+  <chartTitle>MeatNeedMean and VegNeedMean</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,25 +21,25 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>EV:meat</string>
+      <string>VegNeedMean (VNM) </string>
       <SeriesData>
-        <label>EV:meat</label>
+        <label>VegNeedMean (VNM) </label>
         <color>
-          <red>255</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>0</red>
+          <green>255</green>
+          <blue>51</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
     </entry>
     <entry>
-      <string>EV:veg</string>
+      <string>MeatNeedMean (MNM)</string>
       <SeriesData>
-        <label>EV:veg</label>
+        <label>MeatNeedMean (MNM)</label>
         <color>
-          <red>51</red>
-          <green>255</green>
-          <blue>0</blue>
+          <red>255</red>
+          <green>51</green>
+          <blue>51</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>

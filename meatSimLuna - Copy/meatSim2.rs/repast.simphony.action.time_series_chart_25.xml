@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Needs</name>
-  <dataSet>Needs</dataSet>
+  <name>Meat/Veg and Aff/Habitual/Int</name>
+  <dataSet>Aggregate Eater Data (M,V,A,H,I)</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>Need Index</yAxisLabel>
-  <chartTitle>Needs</chartTitle>
+  <yAxisLabel>Action Frequency</yAxisLabel>
+  <chartTitle>Meat/Veg Afforded/Habitual/Intentional</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,15 +21,78 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>ID</string>
+      <string>Veg Intentional</string>
       <SeriesData>
-        <label></label>
+        <label>Veg Intentional</label>
+        <color>
+          <red>204</red>
+          <green>255</green>
+          <blue>204</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Meat Afforded </string>
+      <SeriesData>
+        <label>Meat Afforded </label>
+        <color>
+          <red>153</red>
+          <green>0</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Meat Intentional</string>
+      <SeriesData>
+        <label>Meat Intentional</label>
+        <color>
+          <red>255</red>
+          <green>204</green>
+          <blue>204</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Meat Habitual</string>
+      <SeriesData>
+        <label>Meat Habitual</label>
+        <color>
+          <red>255</red>
+          <green>0</green>
+          <blue>51</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Veg Habitual</string>
+      <SeriesData>
+        <label>Veg Habitual</label>
+        <color>
+          <red>51</red>
+          <green>255</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Veg Afforded</string>
+      <SeriesData>
+        <label>Veg Afforded</label>
+        <color>
+          <red>0</red>
+          <green>51</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
       </SeriesData>
     </entry>
   </seriesIds>
-  <dataValueIds>
-    <string>dataNeedSelfEnhancement</string>
-    <string>dataNeedSelfTranscendence</string>
-  </dataValueIds>
+  <dataValueIds/>
   <plotRangeLength>-1</plotRangeLength>
 </repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

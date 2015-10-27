@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Habits Only Meat at End</name>
+  <name>Habit End</name>
   <type>NON_AGGREGATE</type>
   <sourceType>meatEating.Eater1</sourceType>
   <inclTick>true</inclTick>
@@ -12,7 +12,7 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>ONE_TIME</frequency>
-    <hashCode>-1694272552</hashCode>
+    <hashCode>-1423914955</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">

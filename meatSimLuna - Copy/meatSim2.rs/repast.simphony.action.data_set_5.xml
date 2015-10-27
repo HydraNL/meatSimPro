@@ -1,7 +1,6 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Evaluation</name>
-  <type>NON_AGGREGATE</type>
-  <sourceType>framework.Agent</sourceType>
+  <name>Evaluation Aggregate</name>
+  <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
@@ -12,32 +11,35 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-146340271</hashCode>
+    <hashCode>-1831502885</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>dataEvIndividual</string>
+      <string>E</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataEvIndividual</id>
-        <className>framework.Agent</className>
-        <methodName>dataEvIndividual</methodName>
+        <id>E</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataEvaluation</methodName>
+        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>dataEvSocial</string>
+      <string>M</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataEvSocial</id>
-        <className>framework.Agent</className>
-        <methodName>dataEvSocial</methodName>
+        <id>M</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataMeatEvaluation</methodName>
+        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>ID</string>
+      <string>V</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ID</id>
-        <className>framework.Agent</className>
-        <methodName>getID</methodName>
+        <id>V</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataVegEvaluation</methodName>
+        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

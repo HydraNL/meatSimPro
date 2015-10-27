@@ -431,14 +431,17 @@ public abstract class Agent {
 				double HI =sp.calculateFrequency(myContext,getOCweight());
 				double ro = CFG.getEvaluationCorrelation();
 				//Ro moet nog negatief!
-				double Attention = 2-
-						(ro * sp.calculateEvaluation(myContext, CFG.OUTSIDE_CONTEXT(getOCweight()))+
-							Math.sqrt(1-(ro*ro)) * randomAttention);
+				double evaluation = sp.calculateEvaluation(myContext, CFG.OUTSIDE_CONTEXT(getOCweight()));
+				double EVvalue =
+							((ro * evaluation)+
+							(Math.sqrt(1-(ro*ro)) * randomAttention));
+				double Attention = 2- Helper.normalize(EVvalue, 1, 0.5);
 				double habitThreshold = CFG.HTR(getHabitWeight());
 				
 				if(HI > Attention * habitThreshold) newCandidates.add(sp);
 				
-				System.out.println(sp.getClass() + "HI"+ HI + "Thr:" + Attention*habitThreshold);
+				//System.out.println(sp.getClass() + "HI"+ HI + "Thr:" + Attention*habitThreshold);
+				//System.out.println(sp.getClass() + "EV"+ evaluation + "Attention:" + Attention + "HW"+ getHabitWeight());
 				//data
 				habitStrengths.put(sp, HI);
 				habitStrengthsWeighted.put(sp, habitStrengths.get(sp) - CFG.HTR(getHabitWeight()));//data
@@ -801,8 +804,8 @@ public abstract class Agent {
 		
 	//	System.out.println("Evaluation :" + Iweight + " " + individualEvaluation() + " " + Sweight + " " + socialEvaluation());
 		Evaluation ev=new Evaluation(getIweight(), individualEvaluation(), getSweight(), socialEvaluation(), myContext);
-		myAction.addEvaluation(ev, getLearnRatio());
-		updateGeneralEvaluation(ev, getLearnRatio());
+		myAction.addEvaluation(ev, getEvaluationLearnRatio());
+		updateGeneralEvaluation(ev, getEvaluationLearnRatio());
 	}
 	
 
@@ -1036,12 +1039,12 @@ public abstract class Agent {
 		
 	}
 
-	private double getLearnRatio() {
-		return CFG.LEARN_RATE(learnWeight);
+	private double getEvaluationLearnRatio() {
+		return CFG.LEARN_RATE(getLearnWeight());
 	}
 	
 	private double getHabitLearnRatio() {
-		return CFG.HABIT_LEARN_RATE(learnWeight);
+		return CFG.HABIT_LEARN_RATE(getLearnWeight());
 	}
 	
 	public double getLearnWeight() {

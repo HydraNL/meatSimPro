@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Evaluation Aggregate</name>
+  <name>Habits Aggregate</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -11,34 +11,43 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-1831502885</hashCode>
+    <hashCode>715651210</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>E</string>
+      <string>Meat Frequency</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>E</id>
+        <id>Meat Frequency</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataEvaluation</methodName>
+        <methodName>dataFrequencyIndexMeat</methodName>
         <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>M</string>
+      <string>Veg Frequency</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>M</id>
+        <id>Veg Frequency</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataMeatEvaluation</methodName>
+        <methodName>dataFrequencyIndexVeg</methodName>
         <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>V</string>
+      <string>Meat Habit</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>V</id>
+        <id>Meat Habit</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataVegEvaluation</methodName>
+        <methodName>dataHabitStrengthMeat</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Veg Habit</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Veg Habit</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataHabitStrengthVeg</methodName>
         <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>

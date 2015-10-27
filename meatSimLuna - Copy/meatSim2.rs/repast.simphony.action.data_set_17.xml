@@ -1,6 +1,7 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Evaluation Aggregate SOC/IND/SUM</name>
-  <type>AGGREGATE</type>
+  <name>HabitStrength Weighted</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>meatEating.Eater1</sourceType>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
@@ -11,35 +12,32 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>193052106</hashCode>
+    <hashCode>340607257</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>TOTAL</string>
+      <string>dataHabitStrengthWeightedMeat</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>TOTAL</id>
+        <id>dataHabitStrengthWeightedMeat</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataEvaluation</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>dataHabitStrengthWeightedMeat</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Weighted IND</string>
+      <string>dataHabitStrengthWeightedVeg</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Weighted IND</id>
+        <id>dataHabitStrengthWeightedVeg</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataEvIndividual</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>dataHabitStrengthWeightedVeg</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Weighted SOC</string>
+      <string>ID</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Weighted SOC</id>
+        <id>ID</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataEvSocial</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>getID</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

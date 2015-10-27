@@ -1,6 +1,7 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>EvaluationSumsForReal</name>
-  <type>AGGREGATE</type>
+  <name>Evaluation Individuals</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>meatEating.Eater1</sourceType>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
@@ -11,26 +12,80 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>677371298</hashCode>
+    <hashCode>323503832</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>EV:meat</string>
+      <string>dataEvIndividual</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>EV:meat</id>
-        <className>main.DataCollector</className>
-        <methodName>evaluationMeatAggr</methodName>
-        <aggType>SUM</aggType>
+        <id>dataEvIndividual</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataEvIndividual</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>EV:veg</string>
+      <string>dataEvSocial</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>EV:veg</id>
-        <className>main.DataCollector</className>
-        <methodName>evaluationVegAggr</methodName>
-        <aggType>SUM</aggType>
+        <id>dataEvSocial</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataEvSocial</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>dataEvaluation</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>dataEvaluation</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataEvaluation</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>EvaluationInContext</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>EvaluationInContext</id>
+        <className>meatEating.Eater1</className>
+        <methodName>getEvaluationInContext</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>EvaluationInContextMeat</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>EvaluationInContextMeat</id>
+        <className>meatEating.Eater1</className>
+        <methodName>getEvaluationInContextMeat</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>EvaluationInContextVeg</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>EvaluationInContextVeg</id>
+        <className>meatEating.Eater1</className>
+        <methodName>getEvaluationInContextVeg</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>dataVegEvaluation</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>dataVegEvaluation</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataVegEvaluation</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>dataMeatEvaluation</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>dataMeatEvaluation</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataMeatEvaluation</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>ID</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>ID</id>
+        <className>meatEating.Eater1</className>
+        <methodName>getID</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

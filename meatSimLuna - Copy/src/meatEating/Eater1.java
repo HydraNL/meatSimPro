@@ -151,6 +151,7 @@ public class Eater1 extends Agent {
 //		if(plateau() ==1.0 && lowestPlateau == 0) lowestPlateau = CFG.getTime();
 //	}
 	
+	//Dus, als er een habitstrength is die ooit een plateauraakt, ga dan zoeken, en return degene waar je BREAKT!
 	public double plateauTime(){
 		if(habitStrengthsMeat.containsKey(250.0) &&
 				habitStrengthsMeat.containsKey(499.0) &&

@@ -2,7 +2,7 @@
 <parameters>
 				
 				<parameter name="endTime" displayName="End Time" type="double" 
-						defaultValue="600.0" 
+						defaultValue="500.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -48,7 +48,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
 		/>	<parameter name="ALL_DINE_IN" displayName="All Dine In" type="boolean" 
-						defaultValue="true" 
+						defaultValue="false" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
@@ -92,7 +92,7 @@
 		
 			
 				<parameter name="HABIT_THRESHOLD_RELATIVE" displayName="Habit Threshold Relative" type="double" 
-						defaultValue="0.6" 
+						defaultValue="0.62" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -103,7 +103,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>		<parameter name="HABIT_SD" displayName="Habit SD" type="double" 
-						defaultValue="0.5" 
+						defaultValue="0.25" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -147,11 +147,21 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/><parameter name="MEAT_INTENTION_MOD" displayName="MEAT_INTENTION_MOD" type="double" 
-						defaultValue="100.0" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="MEAT_INTENTION_MOD_AFTERINT" displayName="MEAT_INTENTION_MOD_AFTERINT" type="double" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/><parameter name="VEG_INTENTION_MOD" displayName="VEG_INTENTION_MOD" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="VEG_INTENTION_MOD_AFTERINT" displayName="VEG_INTENTION_MOD_AFTERINT" type="double" 
 						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
@@ -186,7 +196,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>	<parameter name="HABIT_LEARN_RATE_SD" displayName="Habit_Learn_Rate_SD" type="double" 
-						defaultValue="0.3" 
+						defaultValue="0.5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -232,12 +242,12 @@
 									
 		/>
 				<parameter name="INTERVENTION_TIME" displayName="Intervention: time" type="double" 
-						defaultValue="350.0" 
+						defaultValue="250.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>	<parameter name="VALUE_CHANGE_TIME" displayName="Intervention: Value Change Time" type="double" 
-						defaultValue="200.0" 
+						defaultValue="250.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

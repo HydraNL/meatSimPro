@@ -1,35 +1,36 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>VALHABITS</name>
-  <type>NON_AGGREGATE</type>
-  <sourceType>meatEating.Eater1</sourceType>
+  <name>EvaluationSumsForReal</name>
+  <type>AGGREGATE</type>
   <inclTick>true</inclTick>
-  <inclBatchRun>true</inclBatchRun>
-  <inclRandomSeed>true</inclRandomSeed>
+  <inclBatchRun>false</inclBatchRun>
+  <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>500.0</start>
-    <interval>0.0</interval>
+    <start>1.0</start>
+    <interval>1.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
-    <frequency>ONE_TIME</frequency>
-    <hashCode>-1690555785</hashCode>
+    <frequency>REPEAT</frequency>
+    <hashCode>677371298</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>plateauTime</string>
+      <string>EV:meat</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>plateauTime</id>
-        <className>meatEating.Eater1</className>
-        <methodName>plateauTime</methodName>
+        <id>EV:meat</id>
+        <className>main.DataCollector</className>
+        <methodName>evaluationMeatAggr</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>plateauValue</string>
+      <string>EV:veg</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>plateauValue</id>
-        <className>meatEating.Eater1</className>
-        <methodName>plateauValue</methodName>
+        <id>EV:veg</id>
+        <className>main.DataCollector</className>
+        <methodName>evaluationVegAggr</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

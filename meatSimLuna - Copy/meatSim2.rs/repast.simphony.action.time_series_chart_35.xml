@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>EV Soc Non-aggr</name>
-  <dataSet>Evaluation Individuals</dataSet>
+  <name>EV IND SOC TOTAL</name>
+  <dataSet>Evaluation Aggregate SOC/IND/SUM</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>EV SOCIAL non-aggr</yAxisLabel>
-  <chartTitle>EV SOCIAL non-aggr</chartTitle>
+  <yAxisLabel>EV index</yAxisLabel>
+  <chartTitle>Evaluation IND/SOC/SUM</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,14 +21,42 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>ID</string>
+      <string>TOTAL</string>
       <SeriesData>
-        <label></label>
+        <label>TOTAL</label>
+        <color>
+          <red>0</red>
+          <green>0</green>
+          <blue>255</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Weighted SOC</string>
+      <SeriesData>
+        <label>Weighted SOC</label>
+        <color>
+          <red>153</red>
+          <green>0</green>
+          <blue>153</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Weighted IND</string>
+      <SeriesData>
+        <label>Weighted IND</label>
+        <color>
+          <red>255</red>
+          <green>255</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
       </SeriesData>
     </entry>
   </seriesIds>
-  <dataValueIds>
-    <string>dataEvSocial</string>
-  </dataValueIds>
+  <dataValueIds/>
   <plotRangeLength>-1</plotRangeLength>
 </repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

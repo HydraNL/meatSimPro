@@ -1,45 +1,35 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Evaluation Sums</name>
-  <type>AGGREGATE</type>
+  <name>VALHABITS</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>meatEating.Eater1</sourceType>
   <inclTick>true</inclTick>
-  <inclBatchRun>false</inclBatchRun>
-  <inclRandomSeed>false</inclRandomSeed>
+  <inclBatchRun>true</inclBatchRun>
+  <inclRandomSeed>true</inclRandomSeed>
   <scheduleParams>
-    <start>1.0</start>
-    <interval>1.0</interval>
+    <start>500.0</start>
+    <interval>0.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
-    <frequency>REPEAT</frequency>
-    <hashCode>90417845</hashCode>
+    <frequency>ONE_TIME</frequency>
+    <hashCode>-1690555785</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Evaluation Meat</string>
+      <string>plateauTime</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Evaluation Meat</id>
+        <id>plateauTime</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataMeatEvaluation</methodName>
-        <aggType>SUM</aggType>
+        <methodName>plateauTime</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Evaluation Veg</string>
+      <string>plateauValue</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Evaluation Veg</id>
+        <id>plateauValue</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataVegEvaluation</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Evaluation</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Evaluation</id>
-        <className>meatEating.Eater1</className>
-        <methodName>dataEvaluation</methodName>
-        <aggType>SUM</aggType>
+        <methodName>plateauValue</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

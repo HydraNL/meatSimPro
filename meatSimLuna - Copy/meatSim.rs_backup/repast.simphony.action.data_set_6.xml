@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Habits Aggregate</name>
+  <name>Evaluation Aggregate</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -11,43 +11,34 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>715651210</hashCode>
+    <hashCode>-1831502885</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Meat Frequency</string>
+      <string>E</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Meat Frequency</id>
+        <id>E</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataFrequencyIndexMeat</methodName>
+        <methodName>dataEvaluation</methodName>
         <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Veg Frequency</string>
+      <string>M</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Veg Frequency</id>
+        <id>M</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataFrequencyIndexVeg</methodName>
+        <methodName>dataMeatEvaluation</methodName>
         <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Meat Habit</string>
+      <string>V</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Meat Habit</id>
+        <id>V</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataHabitStrengthMeat</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Veg Habit</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Veg Habit</id>
-        <className>meatEating.Eater1</className>
-        <methodName>dataHabitStrengthVeg</methodName>
+        <methodName>dataVegEvaluation</methodName>
         <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>

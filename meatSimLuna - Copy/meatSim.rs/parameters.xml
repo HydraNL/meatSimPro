@@ -47,6 +47,11 @@
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
+		/>	<parameter name="ALL_DINE_IN" displayName="All Dine In" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
 		/>
 				<parameter name="filterOnAffordances" displayName="Filter On Affordances" type="boolean" 
 						defaultValue="true" 
@@ -78,7 +83,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 		/>	
 				<parameter name="isComplexEvaluated" displayName="Use Complex Evaluation" type="boolean" 
-						defaultValue="false" 
+						defaultValue="true" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 		/>		
@@ -87,18 +92,13 @@
 		
 			
 				<parameter name="HABIT_THRESHOLD_RELATIVE" displayName="Habit Threshold Relative" type="double" 
-						defaultValue="0.25" 
+						defaultValue="0.62" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="HABIT_THRESHOLD_ABSOLUTE" displayName="Habit Threshold Absolute" type="double" 
-						defaultValue="20" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>		<parameter name="OUTSIDE_CONTEXT" displayName="Habit Outside Context Weight" type="double" 
-						defaultValue="0.33" 
+				<parameter name="OUTSIDE_CONTEXT" displayName="Habit Outside Context Weight" type="double" 
+						defaultValue="0.25" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -112,7 +112,7 @@
 		
 		
 					<parameter name="SELFT_AVG_STRENGTH" displayName="SelfTransendence:  Avarage Strength" type="double" 
-						defaultValue="1.0" 
+						defaultValue="0.8" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -124,13 +124,13 @@
 									
 		/>
 				<parameter name="selfTbeta" displayName="SelfTransdence: beta" type="double" 
-						defaultValue="0.1" 
+						defaultValue="1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="SELFE_AVG_STRENGTH" displayName="SelfEnhancement: Avarage Strength" type="double" 
-						defaultValue="1.0" 
+						defaultValue="1.2" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -142,7 +142,27 @@
 									
 		/>
 				<parameter name="selfEbeta" displayName="SelfEnhancement: beta" type="double" 
-						defaultValue="0.1" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="MEAT_INTENTION_MOD" displayName="MEAT_INTENTION_MOD" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="MEAT_INTENTION_MOD_AFTERINT" displayName="MEAT_INTENTION_MOD_AFTERINT" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="VEG_INTENTION_MOD" displayName="VEG_INTENTION_MOD" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="VEG_INTENTION_MOD_AFTERINT" displayName="VEG_INTENTION_MOD_AFTERINT" type="double" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -164,27 +184,100 @@
 		
 		
 				<parameter name="LEARN_RATE" displayName="Learn Rate" type="double" 
-						defaultValue="0.25" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+				<parameter name="HABIT_LEARN_RATE" displayName="Habit_Learn_Rate" type="double" 
+						defaultValue="0.3" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="HABIT_LEARN_RATE_SD" displayName="Habit_Learn_Rate_SD" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+				<parameter name="OPEN_VEG_RESTAURANTS" displayName="INT: Open Veg restaurants" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="CHANGE_AFFORDANCES" displayName="INT: Change Affordance Mixed" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="MEET_UP_COUNT" displayName="INT: meetUp count" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="MEETUP_VEG" displayName="INT: meetUp VEG" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>	<parameter name="MEETUP_INVITE" displayName="INT: meetUp Invite" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+					
+									
+		/>	<parameter name="MEET_UP_ITERATOR" displayName="INT: MEET_UP_ITERATOR" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/><parameter name="INT_VEG_WEEK" displayName="INT: VEG WEEK" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/><parameter name="INT_VEG_WEEK_AVGACCEPTRATIO" displayName="INT: VEG WEEK AVG ACCEPTRATIO" type="double" 
+						defaultValue="2.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 		
 		
-				<parameter name="CONTEXT_INTERVENTION" displayName="Intervention: time" type="double" 
+		<parameter name="INT_VEGDAY" displayName="Intervention: VEGDAYS 0,1 or 2" type="double" 
 						defaultValue="0.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="INTERVENTION_TIME" displayName="Intervention: time" type="double" 
-						defaultValue="600.0" 
+						defaultValue="250.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="VALUE_CHANGE_TIME" displayName="Intervention: Value Change Time" type="double" 
+						defaultValue="250.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>	<parameter name="INCREASE_DINING_OUT" displayName="Intervention: Dining In Divider" type="double" 
+						defaultValue="0.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 					<parameter name="SELFT_INTERVENTION_STRENGTH" displayName="Intervention: SelfTransendence:  Avarage Strength" type="double" 
-						defaultValue="0.5" 
+						defaultValue="1.2" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+					<parameter name="SELFE_INTERVENTION_STRENGTH" displayName="Intervention: SelfEnhancement:  Avarage Strength" type="double" 
+						defaultValue="0.8" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

@@ -1,6 +1,7 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Individual Eater Data</name>
-  <type>AGGREGATE</type>
+  <name>Needs</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>meatEating.Eater1</sourceType>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
@@ -11,17 +12,32 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-1628835909</hashCode>
+    <hashCode>-416838457</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>DeliberativeActionType</string>
+      <string>dataNeedSelfEnhancement</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>DeliberativeActionType</id>
-        <className>main.DataCollector</className>
-        <methodName>deliberativeTypeOneAgent</methodName>
-        <aggType>SUM</aggType>
+        <id>dataNeedSelfEnhancement</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataNeedSelfEnhancement</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>dataNeedSelfTranscendence</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>dataNeedSelfTranscendence</id>
+        <className>meatEating.Eater1</className>
+        <methodName>dataNeedSelfTranscendence</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>ID</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>ID</id>
+        <className>meatEating.Eater1</className>
+        <methodName>getID</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

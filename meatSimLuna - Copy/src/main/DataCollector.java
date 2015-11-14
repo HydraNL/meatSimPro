@@ -3,8 +3,12 @@ package main;
 
 import repast.simphony.random.RandomHelper;
 import meatEating.MeatEatingPractice;
+import meatEating.MeatVenue;
+import meatEating.MixedVenue;
 import meatEating.VegEatingPractice;
+import meatEating.VegVenue;
 import framework.Agent;
+import framework.Location;
 
 //Needs to be added to the context to be able to collect data from.
 public class DataCollector {
@@ -54,5 +58,27 @@ public class DataCollector {
 			x+=a.dataEvaluation() *a.dataVegAction();
 		}
 		return x/countVegAction();
+	}
+	
+	private double agentCountPerVenueClass(Class locClass){
+		//double venueCount=0.0;
+		double agentCount=0.0;
+		for(Location l:main.locations){
+			if(l.getClass() == locClass){
+				agentCount+= l.dataAgentCount();
+				//venueCount++;
+			}
+		}
+		return agentCount;
+	}
+	
+	public double meatVenueAgentCount(){
+		return agentCountPerVenueClass(MeatVenue.class);
+	}
+	public double mixVenueAgentCount(){
+		return agentCountPerVenueClass(MixedVenue.class);
+	}
+	public double vegVenueAgentCount(){
+		return agentCountPerVenueClass(VegVenue.class);
 	}
 }

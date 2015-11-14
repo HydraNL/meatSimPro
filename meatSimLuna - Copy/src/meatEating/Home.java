@@ -13,5 +13,6 @@ public class Home extends Location {
 	public Home() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 }

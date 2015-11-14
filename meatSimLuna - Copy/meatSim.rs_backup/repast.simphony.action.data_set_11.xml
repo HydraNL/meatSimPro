@@ -1,75 +1,36 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Needs, Threshold, Satisfaction (I)</name>
-  <type>NON_AGGREGATE</type>
-  <sourceType>meatEating.Eater1</sourceType>
+  <name>Needs Aggregates</name>
+  <type>AGGREGATE</type>
   <inclTick>true</inclTick>
-  <inclBatchRun>false</inclBatchRun>
+  <inclBatchRun>true</inclBatchRun>
   <inclRandomSeed>true</inclRandomSeed>
   <scheduleParams>
     <start>1.0</start>
-    <interval>1.0</interval>
+    <interval>10.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>1637223372</hashCode>
+    <hashCode>1380473470</hashCode>
   </scheduleParams>
-  <atEnd>false</atEnd>
+  <atEnd>true</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>dataNeedSelfEnhancement</string>
+      <string>MeatNeedMean (MNM)</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataNeedSelfEnhancement</id>
+        <id>MeatNeedMean (MNM)</id>
         <className>meatEating.Eater1</className>
         <methodName>dataNeedSelfEnhancement</methodName>
+        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>dataNeedSelfTranscendence</string>
+      <string>VegNeedMean (VNM) </string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataNeedSelfTranscendence</id>
+        <id>VegNeedMean (VNM) </id>
         <className>meatEating.Eater1</className>
         <methodName>dataNeedSelfTranscendence</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>dataSatisfactionSelfEnhancement</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataSatisfactionSelfEnhancement</id>
-        <className>meatEating.Eater1</className>
-        <methodName>dataSatisfactionSelfEnhancement</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>dataSatisfactionSelfTranscendence</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataSatisfactionSelfTranscendence</id>
-        <className>meatEating.Eater1</className>
-        <methodName>dataSatisfactionSelfTranscendence</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>dataThresholdSelfEnhancement</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataThresholdSelfEnhancement</id>
-        <className>meatEating.Eater1</className>
-        <methodName>dataThresholdSelfEnhancement</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>dataThresholdSelfTranscendence</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataThresholdSelfTranscendence</id>
-        <className>meatEating.Eater1</className>
-        <methodName>dataThresholdSelfTranscendence</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>ID</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ID</id>
-        <className>meatEating.Eater1</className>
-        <methodName>getID</methodName>
+        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

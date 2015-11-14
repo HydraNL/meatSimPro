@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Habits</name>
+  <name>Needs</name>
   <type>NON_AGGREGATE</type>
   <sourceType>meatEating.Eater1</sourceType>
   <inclTick>true</inclTick>
@@ -17,19 +17,19 @@
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>dataHabitStrengthMeat</string>
+      <string>dataNeedSelfEnhancement</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataHabitStrengthMeat</id>
+        <id>dataNeedSelfEnhancement</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataHabitStrengthMeat</methodName>
+        <methodName>dataNeedSelfEnhancement</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>dataHabitStrengthVeg</string>
+      <string>dataNeedSelfTranscendence</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataHabitStrengthVeg</id>
+        <id>dataNeedSelfTranscendence</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataHabitStrengthVeg</methodName>
+        <methodName>dataNeedSelfTranscendence</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>

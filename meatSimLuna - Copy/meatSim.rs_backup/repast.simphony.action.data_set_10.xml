@@ -1,36 +1,35 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Needs Aggregates</name>
-  <type>AGGREGATE</type>
+  <name>Habit End</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>meatEating.Eater1</sourceType>
   <inclTick>true</inclTick>
   <inclBatchRun>true</inclBatchRun>
   <inclRandomSeed>true</inclRandomSeed>
   <scheduleParams>
-    <start>1.0</start>
-    <interval>10.0</interval>
+    <start>500.0</start>
+    <interval>0.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
-    <frequency>REPEAT</frequency>
-    <hashCode>1380473470</hashCode>
+    <frequency>ONE_TIME</frequency>
+    <hashCode>-1423914955</hashCode>
   </scheduleParams>
-  <atEnd>true</atEnd>
+  <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>MeatNeedMean (MNM)</string>
+      <string>dataHabitStrengthMeat</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>MeatNeedMean (MNM)</id>
+        <id>dataHabitStrengthMeat</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataNeedSelfEnhancement</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>dataHabitStrengthMeat</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>VegNeedMean (VNM) </string>
+      <string>ID</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>VegNeedMean (VNM) </id>
+        <id>ID</id>
         <className>meatEating.Eater1</className>
-        <methodName>dataNeedSelfTranscendence</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>getID</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

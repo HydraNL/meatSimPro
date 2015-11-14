@@ -151,6 +151,7 @@ public abstract class AbstractBuilder implements ContextBuilder<Object> {
 		setAgentsToUnLocated();
 	}
 	
+	//remove physicalcontext as well?
 	public void cleanUpPContext(){
 		for(Location l:locations){
 			l.removePContext();

@@ -1,7 +1,7 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Habits</name>
+  <name>Evaluation</name>
   <type>NON_AGGREGATE</type>
-  <sourceType>meatEating.Eater1</sourceType>
+  <sourceType>framework.Agent</sourceType>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
@@ -12,31 +12,31 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-416838457</hashCode>
+    <hashCode>-146340271</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>dataHabitStrengthMeat</string>
+      <string>dataEvIndividual</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataHabitStrengthMeat</id>
-        <className>meatEating.Eater1</className>
-        <methodName>dataHabitStrengthMeat</methodName>
+        <id>dataEvIndividual</id>
+        <className>framework.Agent</className>
+        <methodName>dataEvIndividual</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>dataHabitStrengthVeg</string>
+      <string>dataEvSocial</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>dataHabitStrengthVeg</id>
-        <className>meatEating.Eater1</className>
-        <methodName>dataHabitStrengthVeg</methodName>
+        <id>dataEvSocial</id>
+        <className>framework.Agent</className>
+        <methodName>dataEvSocial</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
       <string>ID</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
         <id>ID</id>
-        <className>meatEating.Eater1</className>
+        <className>framework.Agent</className>
         <methodName>getID</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>

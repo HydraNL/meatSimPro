@@ -1,10 +1,9 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Validation Habits</name>
-  <type>NON_AGGREGATE</type>
-  <sourceType>meatEating.Eater1</sourceType>
+  <name>Evaluation Sums</name>
+  <type>AGGREGATE</type>
   <inclTick>true</inclTick>
-  <inclBatchRun>true</inclBatchRun>
-  <inclRandomSeed>true</inclRandomSeed>
+  <inclBatchRun>false</inclBatchRun>
+  <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
     <start>1.0</start>
     <interval>1.0</interval>
@@ -12,32 +11,35 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-242298822</hashCode>
+    <hashCode>90417845</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>individualMeatRatio</string>
+      <string>Evaluation Meat</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>individualMeatRatio</id>
+        <id>Evaluation Meat</id>
         <className>meatEating.Eater1</className>
-        <methodName>individualMeatRatio</methodName>
+        <methodName>dataMeatEvaluation</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>plateau</string>
+      <string>Evaluation Veg</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>plateau</id>
+        <id>Evaluation Veg</id>
         <className>meatEating.Eater1</className>
-        <methodName>plateau</methodName>
+        <methodName>dataVegEvaluation</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>ID</string>
+      <string>Evaluation</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ID</id>
+        <id>Evaluation</id>
         <className>meatEating.Eater1</className>
-        <methodName>getID</methodName>
+        <methodName>dataEvaluation</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

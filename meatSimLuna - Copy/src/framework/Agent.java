@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -27,12 +28,14 @@ import main.CFG;
 import main.Helper;
 import meatEating.Conservation;
 import meatEating.MeatEatingPractice;
+import meatEating.MeatVenue;
 import meatEating.MeetUpLocation;
 import meatEating.MixedVenue;
 import meatEating.Openness;
 import meatEating.SelfEnhancement;
 import meatEating.SelfTranscendence;
 import meatEating.VegEatingPractice;
+import meatEating.VegVenue;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameter;
 import repast.simphony.random.RandomHelper;
@@ -79,6 +82,9 @@ public abstract class Agent {
 	private double diningOutRatio;
 	private boolean isLocated;
 	public double generalEvaluation;
+	public HashMap<Object, Double> contextPreference;
+	
+	boolean acceptInvVegWeek;
 	
 	//For Data Projection
 	private int ID;
@@ -132,6 +138,9 @@ public abstract class Agent {
 		diningOutRatio = CFG.getDiningOutRatio();
 		myMeetUpPlace = meetUpPlace;
 		generalEvaluation = 1.0;
+		contextPreference=new HashMap<Object, Double>();
+		
+		acceptInvVegWeek =false;
 	}
 	
 	
@@ -150,6 +159,27 @@ public abstract class Agent {
 	 * How is this done per agent?
 	 */
 	
+	@ScheduledMethod(start=1, priority = 8)
+	public void contextPreference(){
+		//dit doe je ook in addVenue
+		for(Location l:candidateLocations){
+			if(!contextPreference.containsKey(l)){
+			double preference = RandomHelper.nextDoubleFromTo(0, 1.0);
+			contextPreference.put(l, preference);
+			}
+		}
+		
+//		//includehimself but who cares
+//		contextPreferenceA=new HashMap<Agent, Double>();
+		for(Agent a: agents){
+			if(!contextPreference.containsKey(a)){
+			double preference = RandomHelper.nextDoubleFromTo(0, 1.0);
+			contextPreference.put(a, preference);
+			a.contextPreference.put(this, preference);
+			}
+		}
+	}
+	
 	@ScheduledMethod(start = 1, interval =1, priority = 7)
 	public void updateWeights(){
 		if(CFG.useComplexValues()){
@@ -157,8 +187,8 @@ public abstract class Agent {
 			setOCweight(Helper.bound(0,2,RandomHelper.getNormal().nextDouble()));
 			setIweight(Helper.normalize(myValues.get(SelfEnhancement.class).getStrength(null),1,0.25));
 			setSweight(Helper.normalize((myValues.get(Conservation.class).getStrength(null)+myValues.get(SelfTranscendence.class).getStrength(null))/2,1,0.125));
-			setAcceptRate(Helper.normalize(myValues.get(SelfEnhancement.class).getStrength(null)+ myValues.get(Conservation.class).getStrength(null) 
-					-(myValues.get(Openness.class).getStrength(null)+ myValues.get(SelfTranscendence.class).getStrength(null)),0,0.47));
+			setAcceptRate(Helper.normalize((myValues.get(Openness.class).getStrength(null)+ myValues.get(SelfTranscendence.class).getStrength(null)
+					- (myValues.get(SelfEnhancement.class).getStrength(null)+ myValues.get(Conservation.class).getStrength(null)) ),0,0.47));
 			setChooseOnPhysicalRate(Helper.normalize(myValues.get(SelfEnhancement.class).getStrength(null) -myValues.get(SelfTranscendence.class).getStrength(null), 0, 0.47));
 			setLearnWeight(Helper.normalize(myValues.get(Openness.class).getStrength(null) -myValues.get(Conservation.class).getStrength(null), 0, 0.47,1,CFG.habitlearnSD()));
 	}
@@ -188,8 +218,67 @@ public abstract class Agent {
 		}
 	}
 	
+	@ScheduledMethod(start =1, interval = 1, priority =5.7)
+	public void vegWeek(){
+		if(CFG.INTERVENTION_TIME() == CFG.getTime()){
+			if(CFG.isVegWeek()){
+				//Only Veg at Meet Up Place
+				PContext affordanceToRemove =null;
+				for(PContext affordance:getMeatPractice().getAffordances()){
+					if(affordance.getMyLocation().getClass() == myMeetUpPlace.getClass()) affordanceToRemove = affordance;
+				}
+				 if(affordanceToRemove != null) getMeatPractice().removeAffordance(affordanceToRemove); 
+				 
+				 //Accept Invitation? If yes invite friends
+				 acceptInvVegWeek();
+			}
+		}
+		if(CFG.getTime()>= CFG.INTERVENTION_TIME()   &&
+				CFG.getTime() <CFG.INTERVENTION_TIME() + 7 
+				&&CFG.isVegWeek() &&
+				acceptInvVegWeek){
+			goTo(myMeetUpPlace);
+		}
+	}
+	
+	
+	private void acceptInvVegWeek() {
+		 if(!acceptInvVegWeek){
+			 if(acceptNow()){
+				 acceptInvVegWeek =  true;
+				 List<Agent> friends = filterOnHabitsA(filterOnAffordancesA(agents));
+				 if(friends != null){
+					 for(Agent a:friends){
+						 a.acceptInvVegWeek();
+					 }
+				 }
+			}
+		 }
+	}
+
+
+	private boolean acceptNow(){
+		boolean accept = false;
+			SocialPractice temp;
+			temp = (CFG.isIntentional()) ? //Get a random practice if intentions aren't used.
+					chooseOnIntentions(mySocialPractices):
+					(RandomHelper.nextIntFromTo(0, 1) ==1) ?
+							new MeatEatingPractice(this):
+							new VegEatingPractice(this);
+			if(temp instanceof VegEatingPractice){
+				//System.out.println(getAcceptRate());
+				if(RandomHelper.nextDoubleFromTo(0, CFG.AVGacceptRatio()) < getAcceptRate()){
+					
+					accept = true;
+				}
+			}
+		return accept;
+	}
+
+
 	@ScheduledMethod(start= 1, interval =1, priority=5.5)
 	public void meetUp(){
+		//Hier wordt bij de meatPractice niet mere toegelaten (afforded) op de locatie waar je het doet.
 		if(CFG.MEETUP_VEG()){
 			PContext affordanceToRemove =null;
 			for(PContext affordance:getMeatPractice().getAffordances()){
@@ -201,7 +290,7 @@ public abstract class Agent {
 			if(CFG.MEETUP_INVITE()){
 				if(acceptInvitation(myMeetUpPlace)) diningOutToMeetUp(); //Only if you want to eat Veg you organize a dining party.
 			}
-			else goTo(myMeetUpPlace);
+			else goTo(myMeetUpPlace); //maar anders ga je er ok heen?!
 		//	System.out.println("Agents MEETUP");
 		}
 	}
@@ -222,6 +311,7 @@ public abstract class Agent {
 	//When you go to something you create or join a Pcontext.
 	public void goTo(Location l){
 		//System.out.println("Agents:" + i++);
+		if(isLocated) System.out.println("is already located");
 		if(!l.hasContext()) new PContext(l);
 		myContext = l.getMyContext();
 		myContext.addAgent(this);
@@ -263,6 +353,9 @@ public abstract class Agent {
 			ArrayList<Agent> diningGroup =new ArrayList<Agent>();
 			List<Agent> candidateAgents=new ArrayList<Agent>(agents);
 			candidateAgents = filterOnAffordancesA(candidateAgents);
+			for(Agent a:candidateAgents){
+				if(a.isLocated()) System.out.println("Some of the cand group are located");
+			}
 			
 			diningGroup.add(this);
 			candidateAgents.remove(this);
@@ -294,6 +387,7 @@ public abstract class Agent {
 			}
 			
 			for(Agent a:diningGroup){
+				if(a.isLocated) System.out.println("Some are located");
 				a.goTo(chosenLocation);
 			}
 		}
@@ -337,21 +431,29 @@ public abstract class Agent {
 		
 		temp = filterOnAffordancesL(temp); //Easier to give a new list back and change ref.
 		List<Location> aFiltered = new ArrayList<Location>(temp);
-		if(isHomogenous(aFiltered)) return pickRandomly(temp);
+		if(isHomogenous(aFiltered)) return pickAccordingToPreference(temp);
 		
+		List<Location> hFiltered= new ArrayList<Location>(temp);; //hack
 		if(CFG.isFilteredOnHabits()){
 		temp = filterOnHabitsL(temp);
-		List<Location> hFiltered = new ArrayList<Location>(temp);
-		if(hFiltered.isEmpty()) temp = aFiltered; //Reroll if empty
-		else if(isHomogenous(hFiltered)) return pickRandomly(temp);
+		hFiltered = new ArrayList<Location>(temp);
+		if(hFiltered.isEmpty()) temp = new ArrayList<Location>(aFiltered); //Reroll if empty
+		else if(isHomogenous(hFiltered)) return pickAccordingToPreference(temp);
 		}
 		
 		if(CFG.isIntentional()){
 		temp = filterOnIntentionsL(temp);
 		List<Location> iFiltered = new ArrayList<Location>(temp);
+		if(iFiltered.isEmpty()){
+			temp = new ArrayList<Location>(hFiltered);  //unique case where habits for non-prefered stuff'
+			if(hFiltered.isEmpty()){
+				System.out.println("This can't be");
+				temp =  new ArrayList<Location>(aFiltered);
+			}
+		}
 		}
 		
-		return pickRandomly(temp);
+		return pickAccordingToPreference(temp);
 	}
 	
 	private List<Location> filterOnAffordancesL(List<Location> temp) {
@@ -369,8 +471,8 @@ public abstract class Agent {
 		double randomAttention = Math.min(2, Math.max(0, RandomHelper.getNormal().nextDouble()));
 		RandomHelper.createNormal(1, 0.25);
 		
-		for(Location l: candidateLocations){
-			double HI = mySocialPractices.get(0).calculateFrequencyL(l);
+		for(Location l: aFiltered){
+			double HI = getMeatPractice().calculateFrequencyL(l); //saved supermap in meatPractice
 			double ro = CFG.getEvaluationCorrelation();
 			double Attention = 2-(
 					ro * getGeneralEvaluation()+
@@ -391,8 +493,8 @@ public abstract class Agent {
 		double randomAttention = Math.min(2, Math.max(0, RandomHelper.getNormal().nextDouble()));
 		RandomHelper.createNormal(1, 0.25);
 		
-		for(Agent a: agents){
-			double HI = mySocialPractices.get(0).calculateFrequencyA(a);
+		for(Agent a: aFiltered){
+			double HI = getMeatPractice().calculateFrequencyA(a);
 			double ro = CFG.getEvaluationCorrelation();
 			double Attention = 2- (ro * getGeneralEvaluation()+
 						Math.sqrt(1-(ro*ro)) * randomAttention);
@@ -480,6 +582,49 @@ public abstract class Agent {
 		return newCandidates;
 	}
 	
+	private <T> T pickAccordingToPreference(List<T> list){
+		if(CFG.pickOnPreference()){
+		//if(list.isEmpty()) System.out.println("list is empty");
+		//System.out.println(list);
+		//System.out.println(contextPreference);
+		T chosenContext = null;
+		Map<Object, Double> objectsInList =new HashMap<Object, Double>();
+		for(Object o: list){
+			objectsInList.put(o, contextPreference.get(o));
+		}
+//		agentsInList = 
+//		            agentsInList.entrySet()
+//		            .stream()
+//		            .filter(p -> list.contains(p.getKey()))
+//		            .collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
+		//if(objectsInList.isEmpty()) System.out.println("agentsinlist is empty");
+//		double totalPreference = Helper.sumDouble(agentsInList.values()) ;
+//		
+//		
+//		double randomDeterminer = RandomHelper.nextDoubleFromTo(0, totalPreference);
+//
+//		Iterator it = agentsInList.entrySet().iterator();
+//		while(randomDeterminer > 0) {
+//			HashMap.Entry pair = (HashMap.Entry) it.next();
+//			chosenContext = (T) pair.getKey();
+//			randomDeterminer = randomDeterminer - (double) pair.getValue();
+//		}
+		//System.out.println(objectsInList);
+		Map.Entry<Object, Double> maxEntry = null;
+		for (Map.Entry<Object, Double> entry : objectsInList.entrySet())
+		{
+		    if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+		    {
+		        maxEntry = entry;
+		    }
+		}
+		chosenContext = (T) maxEntry.getKey();
+
+		return chosenContext;
+		}
+		else return pickRandomly(list);
+	}
+	
 	
 	private <T> T pickRandomly(List<T> list){
 		return list.get(RandomHelper.nextIntFromTo(0, list.size()-1));
@@ -501,7 +646,7 @@ public abstract class Agent {
 		if(hFiltered.isEmpty()) temp = original; //Reroll if empty
 		}
 		
-		return pickRandomly(temp);
+		return pickAccordingToPreference(temp);
 
 	}
 	private List<Agent> filterOnAffordancesA(List<Agent> temp) {
@@ -611,16 +756,9 @@ public abstract class Agent {
 		ArrayList<SocialPractice> previousCandidates;
 		SocialPractice chosenAction;
 		
-		if(CFG.INT_VEGDAY() == 1.0){
-			if(getMyLocation() == myHome){
-				if(RandomHelper.nextIntFromTo(1,7) ==1){
-					return chosenAction = getVegPractice();
-				}
-			}
-		}
 		if(CFG.INT_VEGDAY() == 2.0){
-			if(getMyLocation() == myHome){
-				if(RandomHelper.nextIntFromTo(1,3) ==1){
+			if(getMyLocation() != myHome){
+				if(CFG.getTime()%7 ==1){
 					return chosenAction = getVegPractice();
 				}
 			}
@@ -974,6 +1112,54 @@ public abstract class Agent {
 	public int getID() {
 		return ID;
 	}
+	
+	/*Contextual habits*/
+	public double dataHImeatVenues(){
+		double avgHImeatVenue = 0;
+		double count =0.0;
+		for(Location l:candidateLocations){
+			if(l instanceof MeatVenue){
+				avgHImeatVenue += getMeatPractice().calculateFrequencyL(l);
+				count++;
+				return avgHImeatVenue;
+
+			}
+		}
+		return avgHImeatVenue/count;
+	}
+	
+	/*Contextual habits*/
+	public double dataHIvegVenues(){
+		double avgHIvegVenue = 0;
+		double count =0.0;
+		for(Location l:candidateLocations){
+			if(l instanceof VegVenue){
+				avgHIvegVenue += getMeatPractice().calculateFrequencyL(l);
+				count++;
+				return avgHIvegVenue; //HACK
+			}
+		}
+		return avgHIvegVenue/count;
+	}
+	
+	/*Contextual habits*/
+	public double dataHImixedVenues(){
+		double avgHImixVenue = 0;
+		double count =0.0;
+		for(Location l:candidateLocations){
+			if(l instanceof MixedVenue){
+				avgHImixVenue += getMeatPractice().calculateFrequencyL(l);
+				count++;
+				return avgHImixVenue; 
+			}
+		}
+		return avgHImixVenue/count;
+	}
+	
+	public double dataHIhome(){
+		return getMeatPractice().calculateFrequencyL(myHome);
+	}
+	
 
 
 	public boolean isLocated() {
@@ -1112,4 +1298,11 @@ public abstract class Agent {
 		return spMeat;
 	}
 	
+	public double dataHabitStrengthWithAgent1(){
+		return habitStrengthsA.getOrDefault(agents.get(0), 0.5);
+	}
+	
+	public boolean getInvVegWeek(){
+		return acceptInvVegWeek;
+	}
 }

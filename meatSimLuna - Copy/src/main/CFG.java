@@ -82,8 +82,11 @@ public class CFG {
 		
 	/*Value Strength*/
 	public static double SELFT_AVG_STRENGTH(){
-		if(getTime() > VALUE_CHANGE_TIME()) return RunEnvironment.getInstance().getParameters().getDouble("SELFT_INTERVENTION_STRENGTH");
-		return RunEnvironment.getInstance().getParameters().getDouble("SELFT_AVG_STRENGTH");
+		double extraVegDayInt = 0.0;
+		if(INT_VEGDAY() == 1.0) extraVegDayInt = 0.2;
+		if(INT_VEGDAY() == 2.0) extraVegDayInt = 0.4;
+		if(getTime() > VALUE_CHANGE_TIME()) return RunEnvironment.getInstance().getParameters().getDouble("SELFT_INTERVENTION_STRENGTH") +extraVegDayInt;
+		return RunEnvironment.getInstance().getParameters().getDouble("SELFT_AVG_STRENGTH")+extraVegDayInt;
 	}
 	
 	private static double VALUE_CHANGE_TIME() {
@@ -163,8 +166,11 @@ public class CFG {
 	public static double endTime() {
 		return RunEnvironment.getInstance().getParameters().getDouble("endTime");
 	}
+	
+	//Two Intervention Times
 	public static double INTERVENTION_TIME() {
-		return RunEnvironment.getInstance().getParameters().getDouble("INTERVENTION_TIME");
+		return RunEnvironment.getInstance().getParameters().getDouble("INTERVENTION_TIME");	
+		
 	}
 	public static double getTime(){
 		return RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
@@ -287,9 +293,9 @@ public class CFG {
 		return RunEnvironment.getInstance().getParameters().getBoolean("CHANGE_AFFORDANCES");
 	}
 
-
+	//1 meetupPlace, for now;
 	public static int meetUpPlacesCount() {
-		return 2;
+		return 1;
 	}
 
 	
@@ -315,7 +321,7 @@ public class CFG {
 	}
 
 	public static double INT_VEGDAY() {
-		return (getTime() > INTERVENTION_TIME()) ? RunEnvironment.getInstance().getParameters().getDouble("INT_VEGDAY"):0;
+		return (getTime() > INTERVENTION_TIME() &&getTime()%7==1.0) ? RunEnvironment.getInstance().getParameters().getDouble("INT_VEGDAY"):0.0;
 	}
 	
 	public static double MeetUpIterator(){
@@ -362,6 +368,20 @@ public class CFG {
 				}
 				else return RunEnvironment.getInstance().getParameters().getDouble("VEG_INTENTION_MOD_AFTERINT");
 		}
+	}
+
+	public static boolean pickOnPreference() {
+		return false;
+	}
+
+	public static boolean isVegWeek() {
+		//Makes it easier to iterate
+		if(AVGacceptRatio() == 0.0) return false;
+		return RunEnvironment.getInstance().getParameters().getBoolean("INT_VEG_WEEK");
+	}
+
+	public static double AVGacceptRatio() {
+		return RunEnvironment.getInstance().getParameters().getDouble("INT_VEG_WEEK_AVGACCEPTRATIO");
 	}
 
 	

@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Individual Eater Data</name>
+  <name>Aggregate Eater Data (M,V,A,H,I)</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -11,16 +11,115 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-1628835909</hashCode>
+    <hashCode>163282813</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>DeliberativeActionType</string>
+      <string>Afforded </string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>DeliberativeActionType</id>
-        <className>main.DataCollector</className>
-        <methodName>deliberativeTypeOneAgent</methodName>
+        <id>Afforded </id>
+        <className>framework.Agent</className>
+        <methodName>dataAffAction</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Habitual </string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Habitual </id>
+        <className>framework.Agent</className>
+        <methodName>dataHabitual</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Intentional </string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Intentional </id>
+        <className>framework.Agent</className>
+        <methodName>dataIntentional</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Meat Habitual</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Meat Habitual</id>
+        <className>framework.Agent</className>
+        <methodName>dataMeatHabitual</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Meat Afforded </string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Meat Afforded </id>
+        <className>framework.Agent</className>
+        <methodName>dataMeatAfforded</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Veg Intentional</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Veg Intentional</id>
+        <className>framework.Agent</className>
+        <methodName>dataVegIntentional</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Veg Afforded</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Veg Afforded</id>
+        <className>framework.Agent</className>
+        <methodName>dataVegAfforded</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Veg Habitual</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Veg Habitual</id>
+        <className>framework.Agent</className>
+        <methodName>dataVegHabitual</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Meat</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Meat</id>
+        <className>framework.Agent</className>
+        <methodName>dataMeatAction</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Veg</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Veg</id>
+        <className>framework.Agent</className>
+        <methodName>dataVegAction</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Meat - Veg</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Meat - Veg</id>
+        <className>framework.Agent</className>
+        <methodName>dataEatingType</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Meat Intentional</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Meat Intentional</id>
+        <className>framework.Agent</className>
+        <methodName>dataMeatIntentional</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>

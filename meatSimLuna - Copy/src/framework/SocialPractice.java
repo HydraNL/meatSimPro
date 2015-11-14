@@ -6,6 +6,7 @@ package framework;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
@@ -21,7 +22,9 @@ import main.Helper;
 
 
 
+import meatEating.Home;
 import meatEating.MeatEatingPractice;
+import meatEating.MeatVenue;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -42,8 +45,13 @@ public abstract class SocialPractice {
 	private Agent myAgent;
 	private Class<? extends Value> purpose;
 	private ArrayList<PContext> affordances=new ArrayList<PContext>();
-	//private ArrayList<PContext> performanceHistory = new ArrayList<PContext>();
+	//private ArrayList<PContext> performanceHistory = new ArrayList<PContext>();ßß®
 	private HashMap<Object, Double>  performanceHistoryMap = new HashMap<Object, Double>();
+	
+	public HashMap<Object, Double> getPerformanceHistoryMapSP() {
+		return performanceHistoryMapSP;
+	}
+
 	//private DoubleMatrix performanceHistoryMatrix;
 	private HashMap<Object, Double> evaluationHistoryMap = new HashMap<Object, Double>();
 	private HashMap<Object, Double>  performanceHistoryMapSP = new HashMap<Object, Double>();
@@ -110,22 +118,26 @@ public abstract class SocialPractice {
 	}
 	
 	private void updatePerformanceHistoryMapSP(PContext currentContext, double learnWeight) {
-		Helper.mapLearn(true, performanceHistoryMapSP, currentContext.getMyLocation(), 1.0, learnWeight);
-
+		//And learn 0 voor die niet in de context zitten.
+		
+		//Niet als je in Home bent, oftewel dit wordt een SP voor'dining out' anders, gaat de HI zo hard omlaag
+				Map<Object, Double> temp =new HashMap<Object, Double>(performanceHistoryMapSP);
+		if(!(currentContext.getMyLocation() instanceof Home)){
+			Helper.mapLearn(true, performanceHistoryMapSP, currentContext.getMyLocation(), 1.0, learnWeight);
+			temp.remove(currentContext.getMyLocation());
+			for(Object o: temp.keySet()){
+				Helper.mapLearn(true, performanceHistoryMapSP, o, 0.0, learnWeight);
+			}
+		}
+		//agents
 		ArrayList<Agent> agents = currentContext.getMyAgents(); //Something wrong with adding?
 		for(Agent a: agents){
 			Helper.mapLearn(true, performanceHistoryMapSP, a, 1.0, learnWeight);
 		}
-		
-		//And learn 0 voor die er niet inzitten
-		Map<Object, Double> temp =new HashMap<Object, Double>(performanceHistoryMapSP);
-		temp.remove(currentContext.getMyLocation());
 		for(Object o: currentContext.getMyAgents()){
 			temp.remove(o);
 		}
-		for(Object o: temp.keySet()){
-			Helper.mapLearn(true, performanceHistoryMapSP, o, 0.0, learnWeight);
-		}
+		
 	}
 	
 	//Dont know if this is still neccesary.
@@ -161,6 +173,11 @@ public abstract class SocialPractice {
 	}
 
 	public ArrayList<PContext> getAffordances() {
+		//if vegday, only allow meat in meatvenues and home;
+		ArrayList<PContext> tempAffordances=new ArrayList<PContext>();
+		tempAffordances.add(new PContext(new Home()));
+		tempAffordances.add(new PContext(new MeatVenue()));
+		if(CFG.INT_VEGDAY() ==1.0 && this instanceof MeatEatingPractice) return tempAffordances;
 		return affordances;
 	}
 

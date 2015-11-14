@@ -111,6 +111,12 @@ public class MeatSimBuilder extends AbstractBuilder {
 		context.add(venue);
 		locations.add(venue);
 		venueList.add(venue);
+		for(Agent a:agents){
+			if(!a.contextPreference.containsKey(venue)){
+			double preference = RandomHelper.nextDoubleFromTo(0, 1.0);
+			a.contextPreference.put(venue, preference);
+			}
+		}
 	}
 	
 	//Note that locations this hold all venues, while specific list only hold venues that are open
@@ -169,6 +175,7 @@ public class MeatSimBuilder extends AbstractBuilder {
 			int difference = CFG.vegetarianVenueCount() - vegVenues.size();
 			for(int i =0; i < difference; i++){
 				addVenue(new VegVenue(grid), vegVenues);
+				
 			}
 		}
 		if(meatVenues.size() > CFG.meatVenueCount()){

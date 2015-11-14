@@ -4,6 +4,8 @@
 package framework;
 
 import main.CFG;
+import meatEating.Home;
+import meatEating.VegVenue;
 import repast.simphony.space.grid.Grid;
 
 /**
@@ -16,7 +18,14 @@ public abstract class Location {
 	private Grid<Object> myGrid;
 	private PhysicalContext myPhysicalContext;
 	private boolean open;
+	private double meatRatio;
 
+	public double getMeatRatio() {
+		return meatRatio;
+	}
+	public void setMeatRatio(double meatRatio) {
+		this.meatRatio = meatRatio;
+	}
 	/**
 	 * The constructor.
 	 */
@@ -59,6 +68,31 @@ public abstract class Location {
 		this.open = open;
 	}
 	
+	public double dataMeatRatio(){
+		if(getMyPhysicalContext() != null && hasContext()){
+			double meatCount =0.0;
+			double totalCount =0.0;
+			
+			for(Agent a:getMyPhysicalContext().getMyPContext().getMyAgents()){
+				meatCount+=a.dataMeatAction();
+				totalCount++;
+			}
+//			if((this instanceof VegVenue) &&getMyPhysicalContext().getMyPContext().getMyAgents().size() == 1 && 0 < (meatCount/totalCount)){
+//				System.out.println("a");
+//			}
+			setMeatRatio((meatCount/totalCount));
+		}
+		if(getMeatRatio() != 0 && this instanceof VegVenue){
+			System.out.println("err");
+		}
+		return getMeatRatio();
+	}
+	public double getID(){
+		return ID;
+	}
 	
+	public double dataAgentCount(){
+		return (!(this instanceof Home) && getMyPhysicalContext() != null && hasContext()) ? getMyContext().getMyAgents().size():0;
+	}
 }
 
